@@ -7,5 +7,6 @@ public class main {
 		JOptionPane.showMessageDialog(null,"Unesi broj 1");
 		JOptionPane.showMessageDialog(null, "je l ti radi ovo?");
 		// asmir asmir asmir
+		// dinche dinche dinche
 	}
 }
