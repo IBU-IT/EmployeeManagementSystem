@@ -21,6 +21,8 @@ import ems.MainWindow;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Toolkit;
 
 public class LoginKlasa extends JFrame {
 
@@ -48,6 +50,8 @@ public class LoginKlasa extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginKlasa() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginKlasa.class.getResource("/images/burc.jpg")));
+		setResizable(false);
 		setVisible(true);
 		setTitle("Employee Management System - Login");
 		String username = "a";
@@ -55,6 +59,7 @@ public class LoginKlasa extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 339);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
