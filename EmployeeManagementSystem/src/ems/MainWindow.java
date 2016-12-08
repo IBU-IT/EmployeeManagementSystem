@@ -82,7 +82,7 @@ public class MainWindow {
 		panel.add(txtpnArrivalTime);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(32, 38, 37, 20);
+		comboBox.setBounds(32, 38, 45, 20);
 		panel.add(comboBox);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		
@@ -95,7 +95,7 @@ public class MainWindow {
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "226", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"}));
-		comboBox_1.setBounds(109, 38, 37, 20);
+		comboBox_1.setBounds(109, 38, 45, 20);
 		panel.add(comboBox_1);
 		
 		JTextPane txtpnMm = new JTextPane();
@@ -120,7 +120,7 @@ public class MainWindow {
 		
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
-		comboBox_2.setBounds(32, 38, 37, 20);
+		comboBox_2.setBounds(32, 38, 45, 20);
 		panel_1.add(comboBox_2);
 		
 		JTextPane textPane_1 = new JTextPane();
@@ -132,7 +132,7 @@ public class MainWindow {
 		
 		JComboBox comboBox_3 = new JComboBox();
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "226", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"}));
-		comboBox_3.setBounds(109, 38, 37, 20);
+		comboBox_3.setBounds(109, 38, 45, 20);
 		panel_1.add(comboBox_3);
 		
 		JTextPane textPane_2 = new JTextPane();
