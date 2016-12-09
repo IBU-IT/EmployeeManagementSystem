@@ -79,7 +79,7 @@ public class LoginKlasa extends JFrame {
 
 						JOptionPane.showMessageDialog(null, "You have logged in successfully.");
 						MainWindow nw = new MainWindow();
-						nw.UserInterface();
+						
 						setVisible(false);
 					} else {
 						JOptionPane.showMessageDialog(null,

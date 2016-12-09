@@ -62,6 +62,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frmEmployeeManagementSystem = new JFrame();
+		frmEmployeeManagementSystem.setVisible(true);
 		frmEmployeeManagementSystem.setResizable(false);
 		frmEmployeeManagementSystem.getContentPane().setBackground(Color.WHITE);
 		frmEmployeeManagementSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/images/burc.jpg")));
@@ -69,6 +70,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.setBounds(100, 100, 685, 436);
 		frmEmployeeManagementSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmEmployeeManagementSystem.getContentPane().setLayout(null);
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(30, 30, 212, 85);
@@ -147,10 +149,26 @@ public class MainWindow {
 		panel_1.add(textPane_2);
 		
 		JButton btnExit = new JButton("EXIT");
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				System.exit(0);
+			}
+		});
 		btnExit.setBounds(580, 373, 89, 23);
 		frmEmployeeManagementSystem.getContentPane().add(btnExit);
 		
 		JButton btnLogout = new JButton("LOGOUT");
+		btnLogout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frmEmployeeManagementSystem.setVisible(false);
+				LoginKlasa frame = new LoginKlasa();
+				frame.setVisible(true);
+				
+			}
+			
+		});
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -160,6 +178,15 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(btnLogout);
 		
 		JButton btnStats = new JButton("STATS");
+		btnStats.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				int monthlyTime = 35;
+				int lastMonthTime = 140;
+				JOptionPane.showMessageDialog(null, "This month you worked "+monthlyTime+" hours so far."
+						+"\nLast month you worked "+lastMonthTime+" hours total.");
+			}
+		});
 		btnStats.setBounds(382, 373, 89, 23);
 		frmEmployeeManagementSystem.getContentPane().add(btnStats);
 		
