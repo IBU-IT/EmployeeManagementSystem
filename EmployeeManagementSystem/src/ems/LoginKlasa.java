@@ -73,6 +73,7 @@ public class LoginKlasa extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
+				
 				String passText = new String(passInput.getPassword());
 				if (userInput.getText().equals(username)) {
 					if (passText.equals(password)) {

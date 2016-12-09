@@ -181,6 +181,7 @@ public class MainWindow {
 		btnStats.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
 				int monthlyTime = 35;
 				int lastMonthTime = 140;
 				JOptionPane.showMessageDialog(null, "This month you worked "+monthlyTime+" hours so far."
