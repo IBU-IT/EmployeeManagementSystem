@@ -78,6 +78,7 @@ public class MainWindow {
 		panel.setLayout(null);
 		
 		JTextPane txtpnArrivalTime = new JTextPane();
+		txtpnArrivalTime.setEditable(false);
 		txtpnArrivalTime.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtpnArrivalTime.setBounds(10, 0, 136, 27);
 		txtpnArrivalTime.setOpaque(false);
@@ -117,6 +118,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(panel_1);
 		
 		JTextPane txtpnLeavingTime = new JTextPane();
+		txtpnLeavingTime.setEditable(false);
 		txtpnLeavingTime.setToolTipText("");
 		txtpnLeavingTime.setText("LEAVING TIME:");
 		txtpnLeavingTime.setOpaque(false);
