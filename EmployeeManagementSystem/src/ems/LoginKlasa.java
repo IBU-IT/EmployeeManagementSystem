@@ -1,6 +1,7 @@
 package ems;
 
 import java.awt.BorderLayout;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import java.awt.EventQueue;
 
@@ -10,6 +11,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -23,8 +29,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Toolkit;
+import javax.swing.border.LineBorder;
 
 public class LoginKlasa extends JFrame {
+	
 
 	private JPanel contentPane;
 	private JTextField userInput;
@@ -50,17 +58,21 @@ public class LoginKlasa extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginKlasa() {
+		
+		
+		
+		
+		
+		setUndecorated(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginKlasa.class.getResource("/images/burc.jpg")));
 		setResizable(false);
 		setVisible(true);
 		setTitle("Employee Management System - Login");
-		String username = "a";
-		String password = "s";
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 339);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -72,24 +84,18 @@ public class LoginKlasa extends JFrame {
 		login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
 				
-				String passText = new String(passInput.getPassword());
-				if (userInput.getText().equals(username)) {
-					if (passText.equals(password)) {
 
-						JOptionPane.showMessageDialog(null, "You have logged in successfully.");
-						MainWindow nw = new MainWindow();
-						
-						setVisible(false);
-					} else {
-						JOptionPane.showMessageDialog(null,
-								"The password you have entered is incorrect. \nPlease try again.");
-					}
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"The username you have entered is incorrect. \nPlease try again.");
-				}
+				String userText = userInput.getText();
+				String passText = new String(passInput.getPassword());
+				MyMethods mthds = new MyMethods();
+				
+				JOptionPane.showMessageDialog(null, "You have logged in successfully.");
+				MainWindow nw = new MainWindow();
+				
+				setVisible(false);
+				
+				
 			}
 
 		});
