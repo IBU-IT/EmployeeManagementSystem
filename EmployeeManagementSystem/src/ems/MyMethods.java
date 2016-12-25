@@ -8,41 +8,38 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import java.sql.*;
+
 public class MyMethods {
+
 	
+
 	public int login(String userText, String passText) {
-		int loginVerification = 0;
+
+		int userPermision = 0;
 		String pasvord = "dummy";
 		try {
-			
-			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nova_sema", "asmir", "sifra");
-			
+
+			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false", "root", "pasvordzasql");
+
 			Statement myStmt = myConn.createStatement();
-			
-			ResultSet result = myStmt.executeQuery("SELECT id, username, password FROM Users WHERE username='"+userText+"' AND password='"+passText+"'");
+
+			ResultSet result = myStmt
+					.executeQuery("SELECT user_id, type_id, username, password FROM Users WHERE username='" + userText
+							+ "' AND password='" + passText + "'");
 			if (result.next() == false) {
 				JOptionPane.showMessageDialog(null, "Pogresni Podaci");
 			}
-
-			int id = result.getInt("id");
+			userPermision = result.getInt("type_id");
 			String username = result.getString("username");
 			String password = result.getString("password");
+			int userid = result.getInt("user_id");
 			
-			//Provjera
-			if (id == 1) {
-				JOptionPane.showMessageDialog(null, "admin");
-			}else{
-				JOptionPane.showMessageDialog(null, "not admin");
-			}
-			
-			
-			
-			
-		}
-		catch (Exception exc){
+		} catch (Exception exc) {
 			exc.printStackTrace();
 		}
-		return loginVerification;
+		return userPermision;
 	}
+
+	
 
 }

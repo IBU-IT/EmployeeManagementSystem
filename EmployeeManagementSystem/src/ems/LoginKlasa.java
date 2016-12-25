@@ -32,8 +32,8 @@ import java.awt.Toolkit;
 import javax.swing.border.LineBorder;
 
 public class LoginKlasa extends JFrame {
-	
-
+	public String userText;
+	public String passText;
 	private JPanel contentPane;
 	private JTextField userInput;
 	private JPasswordField passInput;
@@ -58,11 +58,7 @@ public class LoginKlasa extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginKlasa() {
-		
-		
-		
-		
-		
+
 		setUndecorated(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginKlasa.class.getResource("/images/burc.jpg")));
 		setResizable(false);
@@ -84,18 +80,22 @@ public class LoginKlasa extends JFrame {
 		login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
 
-				String userText = userInput.getText();
-				String passText = new String(passInput.getPassword());
+				userText = userInput.getText();
+				passText = new String(passInput.getPassword());
 				MyMethods mthds = new MyMethods();
-				
-				JOptionPane.showMessageDialog(null, "You have logged in successfully.");
-				MainWindow nw = new MainWindow();
-				
-				setVisible(false);
-				
-				
+				int userPerm = mthds.login(userText, passText);
+				if (userPerm == 1) {
+					JOptionPane.showMessageDialog(null, "Welcome back, admin.");
+					MainWindowAdmin nwa = new MainWindowAdmin();
+				} else if (userPerm == 2) {
+					JOptionPane.showMessageDialog(null, "You have logged in successfully.");
+					MainWindow nw = new MainWindow();
+					setVisible(false);
+				} else {
+					// do nothing
+				}
+
 			}
 
 		});
@@ -135,7 +135,7 @@ public class LoginKlasa extends JFrame {
 		lblClickLogoFor.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblClickLogoFor.setBounds(167, 170, 133, 16);
 		contentPane.add(lblClickLogoFor);
-		
+
 		JButton btnExit = new JButton("EXIT");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

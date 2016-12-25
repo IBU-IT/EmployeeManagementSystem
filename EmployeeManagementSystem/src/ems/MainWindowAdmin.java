@@ -32,7 +32,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class MainWindow {
+public class MainWindowAdmin {
 
 	private JFrame frmEmployeeManagementSystem;
 
@@ -43,7 +43,7 @@ public class MainWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainWindow window = new MainWindow();
+					MainWindowAdmin window = new MainWindowAdmin();
 					window.frmEmployeeManagementSystem.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class MainWindow {
 	/**
 	 * Create the application.
 	 */
-	public MainWindow() {
+	public MainWindowAdmin() {
 		initialize();
 	}
 
@@ -67,7 +67,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.setVisible(true);
 		frmEmployeeManagementSystem.setResizable(false);
 		frmEmployeeManagementSystem.getContentPane().setBackground(Color.WHITE);
-		frmEmployeeManagementSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/images/burc.jpg")));
+		frmEmployeeManagementSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		frmEmployeeManagementSystem.setTitle("Employee Management System");
 		frmEmployeeManagementSystem.setBounds(100, 100, 685, 436);
 		frmEmployeeManagementSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -229,11 +229,11 @@ public class MainWindow {
 		btnSubmit.setBounds(30, 222, 212, 55);
 		frmEmployeeManagementSystem.getContentPane().add(btnSubmit);
 		
-		JLabel lblEmployeeWindow = new JLabel("Employee Window");
-		lblEmployeeWindow.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmployeeWindow.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblEmployeeWindow.setBounds(344, 66, 255, 49);
-		frmEmployeeManagementSystem.getContentPane().add(lblEmployeeWindow);
+		JLabel lblAdminWindow = new JLabel("Admin Window");
+		lblAdminWindow.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblAdminWindow.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdminWindow.setBounds(356, 53, 255, 49);
+		frmEmployeeManagementSystem.getContentPane().add(lblAdminWindow);
 		
 		
 	}
