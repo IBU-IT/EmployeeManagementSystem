@@ -182,13 +182,14 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(btnLogout);
 		
 		JButton btnStats = new JButton("STATS");
+		btnStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnStats.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				int monthlyTime = 35;
-				int lastMonthTime = 140;
-				JOptionPane.showMessageDialog(null, "This month you worked "+monthlyTime+" hours so far."
-						+"\nLast month you worked "+lastMonthTime+" hours total.");
+				JOptionPane.showMessageDialog(null, "You worked "+MyMethods.getGlobHW()+" hours this month.");
 			}
 		});
 		btnStats.setBounds(382, 373, 89, 23);
@@ -220,8 +221,9 @@ public class MainWindow {
 				int resultMin = result % 60;
 				int resultHour = result / 60;
 				MyMethods mthds = new MyMethods();
+				mthds.setHoursDB(resultHour+MyMethods.getGlobHW());
 				
-				JOptionPane.showMessageDialog(null, "You worked "+resultHour+" hours and "+resultMin+" minutes today.");
+				//JOptionPane.showMessageDialog(null, "You worked "+resultHour+" hours today.");
 			}
 		});
 		btnSubmit.setVerifyInputWhenFocusTarget(false);

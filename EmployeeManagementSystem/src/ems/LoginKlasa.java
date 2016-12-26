@@ -32,6 +32,7 @@ import java.awt.Toolkit;
 import javax.swing.border.LineBorder;
 
 public class LoginKlasa extends JFrame {
+	
 	public String userText;
 	public String passText;
 	private JPanel contentPane;
@@ -57,8 +58,9 @@ public class LoginKlasa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public LoginKlasa() {
-
+		
 		setUndecorated(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginKlasa.class.getResource("/images/burc.jpg")));
 		setResizable(false);
@@ -88,6 +90,7 @@ public class LoginKlasa extends JFrame {
 				if (userPerm == 1) {
 					JOptionPane.showMessageDialog(null, "Welcome back, admin.");
 					MainWindowAdmin nwa = new MainWindowAdmin();
+					JOptionPane.showMessageDialog(null, "Your user id is: "+MyMethods.getGlobID()+".");
 				} else if (userPerm == 2) {
 					JOptionPane.showMessageDialog(null, "You have logged in successfully.");
 					MainWindow nw = new MainWindow();
@@ -95,6 +98,7 @@ public class LoginKlasa extends JFrame {
 				} else {
 					// do nothing
 				}
+				
 
 			}
 
