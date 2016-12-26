@@ -29,6 +29,10 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
@@ -199,10 +203,7 @@ public class MainWindow {
 		btnSubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				int varName = (int)arrTime1.getSelectedItem();
-				String arrHour = arrTime1.getSelectedItem().toString();
-				JOptionPane.showMessageDialog(null, varName);
-				JOptionPane.showMessageDialog(null, arrHour);
+				
 			}
 		});
 		btnSubmit.addActionListener(new ActionListener() {
@@ -219,9 +220,10 @@ public class MainWindow {
 				int min2 = Integer.parseInt(leaveMin);
 				int result = (((hour2 * 60) + min2) - ((hour1 * 60) + min1));
 				int resultMin = result % 60;
-				int resultHour = result / 60;
+				int resultHour = (result / 60)+MyMethods.getGlobHW();
 				MyMethods mthds = new MyMethods();
-				mthds.setHoursDB(resultHour+MyMethods.getGlobHW());
+				MyMethods.setGlobHW(resultHour);
+				mthds.setHoursDB(resultHour);
 				
 				//JOptionPane.showMessageDialog(null, "You worked "+resultHour+" hours today.");
 			}
@@ -236,6 +238,13 @@ public class MainWindow {
 		lblEmployeeWindow.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblEmployeeWindow.setBounds(344, 66, 255, 49);
 		frmEmployeeManagementSystem.getContentPane().add(lblEmployeeWindow);
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		
+		JLabel lblAsdasdasdasd = new JLabel(dateFormat.format(date));
+		lblAsdasdasdasd.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblAsdasdasdasd.setBounds(30, 372, 167, 23);
+		frmEmployeeManagementSystem.getContentPane().add(lblAsdasdasdasd);
 		
 		
 	}

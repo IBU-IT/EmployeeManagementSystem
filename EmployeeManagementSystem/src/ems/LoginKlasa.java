@@ -90,7 +90,7 @@ public class LoginKlasa extends JFrame {
 				if (userPerm == 1) {
 					JOptionPane.showMessageDialog(null, "Welcome back, admin.");
 					MainWindowAdmin nwa = new MainWindowAdmin();
-					JOptionPane.showMessageDialog(null, "Your user id is: "+MyMethods.getGlobID()+".");
+					
 				} else if (userPerm == 2) {
 					JOptionPane.showMessageDialog(null, "You have logged in successfully.");
 					MainWindow nw = new MainWindow();
