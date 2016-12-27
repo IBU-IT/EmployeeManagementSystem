@@ -100,6 +100,7 @@ private static String GlobPassword;
 	//-------------------------------
 	private static int globHoursWorked;
 	
+	
 	public static int getGlobHoursWorked() {
 		return globHoursWorked;
 	}

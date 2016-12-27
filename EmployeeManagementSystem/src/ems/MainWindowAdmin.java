@@ -29,6 +29,10 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -136,6 +140,18 @@ public class MainWindowAdmin {
 		btnCheck.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCheck.setBounds(45, 56, 271, 49);
 		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
+		
+		JButton btnNewButton = new JButton("ADD NEW USER");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				 NewInfo ni = new NewInfo();
+			}
+			
+		});
+		btnNewButton.setBounds(45, 139, 271, 49);
+		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
 	}
 

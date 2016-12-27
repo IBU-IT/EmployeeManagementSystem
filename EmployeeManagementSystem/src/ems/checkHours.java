@@ -26,7 +26,7 @@ public class checkHours {
 	/**
 	 * Launch the application.
 	 */
-	public static void CheckHours() {
+	public static void UserFullReport() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -53,7 +53,7 @@ public class checkHours {
 		frmEmsCheck = new JFrame();
 		frmEmsCheck.setType(Type.POPUP);
 		frmEmsCheck.setResizable(false);
-		frmEmsCheck.setTitle("EMS - Check Employee Hours");
+		frmEmsCheck.setTitle("User full report");
 		frmEmsCheck.setBounds(100, 100, 450, 300);
 		frmEmsCheck.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
