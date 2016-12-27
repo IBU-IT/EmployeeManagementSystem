@@ -31,13 +31,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class MainWindow {
-
+	private JLabel lblClock;
 	private JFrame frmEmployeeManagementSystem;
 
 	/**
@@ -55,12 +57,38 @@ public class MainWindow {
 			}
 		});
 	}
+	public void clock (){
+		Thread clock=new Thread(){
+			public void run(){
+				try{
+					for(;;){
+					Calendar cal=new GregorianCalendar();
+					int day=cal.get(Calendar.DAY_OF_MONTH);
+					int month =cal.get(Calendar.MONTH);
+					int year =cal.get(Calendar.YEAR);
+					
+					int second=cal.get(Calendar.SECOND);
+					int minute =cal.get(Calendar.MINUTE);
+					int hour =cal.get(Calendar.HOUR);
+					lblClock.setText("Time: "+hour+ ":"+minute+":"+second+	"       Date: "+day+"/"+month+"/"+year);
 
+					sleep(1000);
+					}
+				}catch (InterruptedException e){
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		};
+		clock.start();
+		}
 	/**
 	 * Create the application.
 	 */
 	public MainWindow() {
 		initialize();
+		clock();
 	}
 
 	/**
@@ -238,13 +266,12 @@ public class MainWindow {
 		lblEmployeeWindow.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblEmployeeWindow.setBounds(344, 66, 255, 49);
 		frmEmployeeManagementSystem.getContentPane().add(lblEmployeeWindow);
+		
+		lblClock = new JLabel("Date&Time");
+		lblClock.setBounds(45, 372, 197, 16);
+		frmEmployeeManagementSystem.getContentPane().add(lblClock);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		
-		JLabel lblAsdasdasdasd = new JLabel(dateFormat.format(date));
-		lblAsdasdasdasd.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblAsdasdasdasd.setBounds(30, 372, 167, 23);
-		frmEmployeeManagementSystem.getContentPane().add(lblAsdasdasdasd);
 		
 		
 	}

@@ -142,7 +142,7 @@ public class NewInfo {
 					TypeID = TypeIDText.getText();
 					Connection myConn = DriverManager.getConnection(
 							"jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false", "root",
-							"sifrasifra");
+							"pasvordzasql");
 					Statement myStmt = myConn.createStatement();
 
 					int result = myStmt.executeUpdate("INSERT INTO users " + "VALUES ('" + UserID + "', '" + Username

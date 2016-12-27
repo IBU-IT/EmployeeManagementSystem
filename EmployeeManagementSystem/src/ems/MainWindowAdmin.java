@@ -35,13 +35,16 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class MainWindowAdmin {
 
+public class MainWindowAdmin {
+	private JLabel lblClock;
 	private JFrame frmEmployeeManagementSystem;
 
 	/**
@@ -59,12 +62,38 @@ public class MainWindowAdmin {
 			}
 		});
 	}
+	public void clock (){
+		Thread clock=new Thread(){
+			public void run(){
+				try{
+					for(;;){
+					Calendar cal=new GregorianCalendar();
+					int day=cal.get(Calendar.DAY_OF_MONTH);
+					int month =cal.get(Calendar.MONTH);
+					int year =cal.get(Calendar.YEAR);
+					
+					int second=cal.get(Calendar.SECOND);
+					int minute =cal.get(Calendar.MINUTE);
+					int hour =cal.get(Calendar.HOUR);
+					lblClock.setText("Time: "+hour+ ":"+minute+":"+second+	"       Date: "+day+"/"+month+"/"+year);
 
+					sleep(1000);
+					}
+				}catch (InterruptedException e){
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		};
+		clock.start();
+		}
 	/**
 	 * Create the application.
 	 */
 	public MainWindowAdmin() {
 		initialize();
+		clock();	
 	}
 
 	/**
@@ -119,11 +148,6 @@ public class MainWindowAdmin {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		
-		JLabel label = new JLabel(dateFormat.format(date));
-		label.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label.setBounds(23, 373, 167, 23);
-		getFrmEmployeeManagementSystem().getContentPane().add(label);
-		
 		JButton btnCheck = new JButton("GET A FULL USER REPORT");
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -138,7 +162,7 @@ public class MainWindowAdmin {
 			}
 		});
 		btnCheck.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCheck.setBounds(45, 79, 271, 49);
+		btnCheck.setBounds(45, 88, 271, 49);
 		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
 		
 		JButton btnNewButton = new JButton("ADD NEW USER");
@@ -150,7 +174,7 @@ public class MainWindowAdmin {
 			}
 			
 		});
-		btnNewButton.setBounds(45, 139, 271, 49);
+		btnNewButton.setBounds(45, 150, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CHANGE USER PASSWORD");
@@ -166,8 +190,9 @@ public class MainWindowAdmin {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
+		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_1.setBounds(45, 199, 271, 49);
+		btnNewButton_1.setBounds(45, 212, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DELETE USER");
@@ -186,8 +211,13 @@ public class MainWindowAdmin {
 			
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_2.setBounds(45, 259, 271, 49);
+		btnNewButton_2.setBounds(45, 274, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_2);
+		
+	
+		lblClock = new JLabel("Date&Time");
+		lblClock.setBounds(45, 376, 297, 16);
+		frmEmployeeManagementSystem.getContentPane().add(lblClock);
 		
 	}
 
