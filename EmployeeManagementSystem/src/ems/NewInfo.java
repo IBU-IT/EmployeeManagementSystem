@@ -69,7 +69,7 @@ public class NewInfo {
 				Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getNewInfo().setTitle("Employee Management System");
 		getNewInfo().setBounds(100, 100, 685, 436);
-		getNewInfo().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getNewInfo().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		NewInfo.getContentPane().setLayout(null);
 
 		JLabel lblNewUsername = new JLabel("New username:");

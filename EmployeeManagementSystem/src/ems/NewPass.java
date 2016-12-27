@@ -62,7 +62,7 @@ public class NewPass  {
 				Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getNewPass().setTitle("Employee Management System");
 		getNewPass().setBounds(100, 100, 453, 268);
-		getNewPass().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getNewPass().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		NewPass.getContentPane().setLayout(null);
 		
 		PassInput = new JTextField();
