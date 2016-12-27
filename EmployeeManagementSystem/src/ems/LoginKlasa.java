@@ -30,8 +30,22 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.border.LineBorder;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LoginKlasa extends JFrame {
+
+	
+	
+	private static String globuserText;
+	
+	public static String getGlobuserText() {
+		return globuserText;
+	}
+
+	public static void setuserText(String globuserText) {
+		LoginKlasa.globuserText = globuserText;
+	}
 	
 	public String userText;
 	public String passText;
@@ -75,6 +89,11 @@ public class LoginKlasa extends JFrame {
 		contentPane.setLayout(null);
 
 		JButton login = new JButton("LOGIN");
+		login.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+			}
+		});
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -84,6 +103,7 @@ public class LoginKlasa extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 
 				userText = userInput.getText();
+				LoginKlasa.setGlobuserText(userText);
 				passText = new String(passInput.getPassword());
 				MyMethods mthds = new MyMethods();
 				int userPerm = mthds.login(userText, passText);
@@ -149,5 +169,10 @@ public class LoginKlasa extends JFrame {
 		});
 		btnExit.setBounds(237, 261, 97, 25);
 		contentPane.add(btnExit);
+	}
+
+	protected static void setGlobuserText(String userText2) {
+		// TODO Auto-generated method stub
+		
 	}
 }
