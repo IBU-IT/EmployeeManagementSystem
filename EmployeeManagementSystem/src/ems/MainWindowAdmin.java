@@ -138,7 +138,7 @@ public class MainWindowAdmin {
 			}
 		});
 		btnCheck.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCheck.setBounds(45, 56, 271, 49);
+		btnCheck.setBounds(45, 79, 271, 49);
 		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
 		
 		JButton btnNewButton = new JButton("ADD NEW USER");
@@ -167,8 +167,27 @@ public class MainWindowAdmin {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_1.setBounds(45, 230, 271, 49);
+		btnNewButton_1.setBounds(45, 199, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("DELETE USER");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DeleteUser window3 = new DeleteUser();
+				
+							}
+			
+				
+			
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_2.setBounds(45, 259, 271, 49);
+		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_2);
 		
 	}
 

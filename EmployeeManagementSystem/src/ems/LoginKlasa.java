@@ -108,12 +108,12 @@ public class LoginKlasa extends JFrame {
 				MyMethods mthds = new MyMethods();
 				int userPerm = mthds.login(userText, passText);
 				if (userPerm == 1) {
-					JOptionPane.showMessageDialog(null, "Welcome back, admin.");
+					
 					setVisible(false);
 					MainWindowAdmin nwa = new MainWindowAdmin();
 					
 				} else if (userPerm == 2) {
-					JOptionPane.showMessageDialog(null, "You have logged in successfully.");
+					
 					MainWindow nw = new MainWindow();
 					setVisible(false);
 				} else {

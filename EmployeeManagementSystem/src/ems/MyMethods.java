@@ -13,7 +13,7 @@ import java.sql.*;
 
 public class MyMethods {
 	static final String USER = "root";
-	static final String PASS = "pasvordzasql";
+	static final String PASS = "sifrasifra";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false";
 	//-------------------------------
 	
@@ -208,6 +208,20 @@ private static int globchangePass;
 		} 
 		catch (Exception exc) {
 			exc.printStackTrace();
+		}
+	}
+	public void deleteEmployee(String usernameDel) {
+		try {
+			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
+	
+			Statement myStmt = myConn.createStatement();
+	
+			String sql	= "DELETE FROM Users WHERE username='"+usernameDel+"'";
+			myStmt.executeUpdate(sql);
+		
+		
+		} catch (Exception exc) {
+		exc.printStackTrace();
 		}
 	}
 }

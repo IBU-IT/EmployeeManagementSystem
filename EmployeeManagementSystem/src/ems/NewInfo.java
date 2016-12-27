@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -140,11 +142,12 @@ public class NewInfo {
 					TypeID = TypeIDText.getText();
 					Connection myConn = DriverManager.getConnection(
 							"jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false", "root",
-							"pasvordzasql");
+							"sifrasifra");
 					Statement myStmt = myConn.createStatement();
 
 					int result = myStmt.executeUpdate("INSERT INTO users " + "VALUES ('" + UserID + "', '" + Username
 							+ "','" + Pass + "','" + Firstname + "','" + Lastname + "',0,'" + TypeID + "' )");
+					JOptionPane.showMessageDialog(null, "The "+Username+" user has been added");
 
 					myConn.close();
 				} catch (Exception e1) {
@@ -152,6 +155,7 @@ public class NewInfo {
 					System.err.println(e1.getMessage());
 
 				}
+				
 			}
 		});
 		btnConfirm.setBounds(211, 232, 97, 25);
