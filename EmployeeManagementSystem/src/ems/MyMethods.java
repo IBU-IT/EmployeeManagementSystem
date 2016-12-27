@@ -13,7 +13,7 @@ import java.sql.*;
 
 public class MyMethods {
 	static final String USER = "root";
-	static final String PASS = "pasvordzasql";
+	static final String PASS = "sifrasifra";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false";
 	//-------------------------------
 	
