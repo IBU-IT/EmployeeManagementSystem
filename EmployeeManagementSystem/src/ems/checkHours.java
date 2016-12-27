@@ -84,8 +84,8 @@ public class checkHours {
 				String usernameCheck = usernameInput.getText();
 				MyMethods mthds = new MyMethods();
 				mthds.checkEmployee(usernameCheck);
-				JOptionPane.showMessageDialog(null, "You worked "+MyMethods.getGlobHoursWorked()+" hours this month.");
-				
+				UserReport UserReport = new UserReport();
+				UserReport.UserReport.setVisible(true);
 			}
 		});
 		btnCheck.setBounds(131, 114, 153, 49);

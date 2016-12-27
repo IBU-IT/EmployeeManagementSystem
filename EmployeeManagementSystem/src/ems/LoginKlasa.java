@@ -89,6 +89,7 @@ public class LoginKlasa extends JFrame {
 				int userPerm = mthds.login(userText, passText);
 				if (userPerm == 1) {
 					JOptionPane.showMessageDialog(null, "Welcome back, admin.");
+					setVisible(false);
 					MainWindowAdmin nwa = new MainWindowAdmin();
 					
 				} else if (userPerm == 2) {

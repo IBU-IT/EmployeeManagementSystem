@@ -48,7 +48,7 @@ public class MainWindowAdmin {
 			public void run() {
 				try {
 					MainWindowAdmin window = new MainWindowAdmin();
-					window.frmEmployeeManagementSystem.setVisible(true);
+					window.getFrmEmployeeManagementSystem().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,15 +67,15 @@ public class MainWindowAdmin {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmEmployeeManagementSystem = new JFrame();
-		frmEmployeeManagementSystem.setVisible(true);
-		frmEmployeeManagementSystem.setResizable(false);
-		frmEmployeeManagementSystem.getContentPane().setBackground(Color.WHITE);
-		frmEmployeeManagementSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
-		frmEmployeeManagementSystem.setTitle("Employee Management System");
-		frmEmployeeManagementSystem.setBounds(100, 100, 685, 436);
-		frmEmployeeManagementSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmEmployeeManagementSystem.getContentPane().setLayout(null);
+		setFrmEmployeeManagementSystem(new JFrame());
+		getFrmEmployeeManagementSystem().setVisible(true);
+		getFrmEmployeeManagementSystem().setResizable(false);
+		getFrmEmployeeManagementSystem().getContentPane().setBackground(Color.WHITE);
+		getFrmEmployeeManagementSystem().setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
+		getFrmEmployeeManagementSystem().setTitle("Employee Management System");
+		getFrmEmployeeManagementSystem().setBounds(100, 100, 685, 436);
+		getFrmEmployeeManagementSystem().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrmEmployeeManagementSystem().getContentPane().setLayout(null);
 		
 		JButton btnExit = new JButton("EXIT");
 		btnExit.addMouseListener(new MouseAdapter() {
@@ -85,13 +85,13 @@ public class MainWindowAdmin {
 			}
 		});
 		btnExit.setBounds(580, 373, 89, 23);
-		frmEmployeeManagementSystem.getContentPane().add(btnExit);
+		getFrmEmployeeManagementSystem().getContentPane().add(btnExit);
 		
 		JButton btnLogout = new JButton("LOGOUT");
 		btnLogout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frmEmployeeManagementSystem.setVisible(false);
+				getFrmEmployeeManagementSystem().setVisible(false);
 				LoginKlasa frame = new LoginKlasa();
 				frame.setVisible(true);
 				
@@ -104,13 +104,13 @@ public class MainWindowAdmin {
 			}
 		});
 		btnLogout.setBounds(481, 373, 89, 23);
-		frmEmployeeManagementSystem.getContentPane().add(btnLogout);
+		getFrmEmployeeManagementSystem().getContentPane().add(btnLogout);
 		
 		JLabel lblAdminWindow = new JLabel("Admin Window");
 		lblAdminWindow.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblAdminWindow.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAdminWindow.setBounds(356, 53, 255, 49);
-		frmEmployeeManagementSystem.getContentPane().add(lblAdminWindow);
+		getFrmEmployeeManagementSystem().getContentPane().add(lblAdminWindow);
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -118,9 +118,13 @@ public class MainWindowAdmin {
 		JLabel label = new JLabel(dateFormat.format(date));
 		label.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		label.setBounds(23, 373, 167, 23);
-		frmEmployeeManagementSystem.getContentPane().add(label);
+		getFrmEmployeeManagementSystem().getContentPane().add(label);
 		
-		JButton btnCheck = new JButton("CHECK");
+		JButton btnCheck = new JButton("GET A FULL USER REPORT");
+		btnCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnCheck.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -130,9 +134,21 @@ public class MainWindowAdmin {
 			}
 		});
 		btnCheck.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCheck.setBounds(45, 135, 212, 49);
-		frmEmployeeManagementSystem.getContentPane().add(btnCheck);
+		btnCheck.setBounds(45, 56, 271, 49);
+		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
 		
+	}
+
+	protected void setVisible(boolean b) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	public JFrame getFrmEmployeeManagementSystem() {
+		return frmEmployeeManagementSystem;
+	}
+
+	public void setFrmEmployeeManagementSystem(JFrame frmEmployeeManagementSystem) {
+		this.frmEmployeeManagementSystem = frmEmployeeManagementSystem;
 	}
 }

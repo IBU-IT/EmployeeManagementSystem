@@ -12,18 +12,39 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 
 public class MyMethods {
-	static final String USER = "asmir";
-	static final String PASS = "sifra";
+	static final String USER = "root";
+	static final String PASS = "pasvordzasql";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false";
 	//-------------------------------
 	
-private static int GlobPassword;
+private static String globLastname;
 	
-	public static int getGlobPassword() {
+	public static String getGlobLastname() {
+		return globLastname;
+	}
+
+	public static void setGlobLastname(String globLastname) {
+		MyMethods.globLastname = globLastname;
+	}
+	
+	//-------------------------------
+private static String globFirstname;
+	
+	public static String getGlobFirstname() {
+		return globFirstname;
+	}
+	public static void setGlobFirstname(String globFirstname) {
+		MyMethods.globFirstname = globFirstname;
+	}
+	//-------------------------------
+	
+private static String GlobPassword;
+	
+	public static String getGlobPassword() {
 		return GlobPassword;
 	}
 
-	public static void setGlobPassword(int GlobPassword) {
+	public static void setGlobPassword(String GlobPassword) {
 		MyMethods.GlobPassword = GlobPassword;
 	}
 	
@@ -31,25 +52,25 @@ private static int GlobPassword;
 	
 	//-------------------------------
 	
-	private static int globUsername;
+	private static String globUsername;
 	
-	public static int getGlobUsername() {
+	public static String getGlobUsername() {
 		return globUsername;
 	}
 
-	public static void setGlobUsername(int globUsername) {
+	public static void setGlobUsername(String globUsername) {
 		MyMethods.globUsername = globUsername;
 	}
 	
 	
 	//-------------------------------
 	
-	private static int globType;
-	public static int getGlobType() {
+	private static String globType;
+	public static String getGlobType() {
 		return globType;
 	}
 
-	public static void setGlobType(int globType) {
+	public static void setGlobType(String globType) {
 		MyMethods.globType = globType;
 	}
 	
@@ -61,8 +82,8 @@ private static int GlobPassword;
 		return globID;
 	}
 
-	public static void setGlobID(int globID) {
-		MyMethods.globID = globID;
+	public static void setGlobID(int userid) {
+		MyMethods.globID = userid;
 	}
 	
 	//-------------------------------
@@ -99,7 +120,7 @@ private static int GlobPassword;
 			Statement myStmt = myConn.createStatement();
 
 			ResultSet result = myStmt
-					.executeQuery("SELECT hoursWorkedMonth, user_id, type_id, username, password FROM Users WHERE username='" + userText
+					.executeQuery("SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id FROM Users WHERE username='" + userText
 							+ "' AND password='" + passText + "'");
 			if (result.next() == false) {
 				JOptionPane.showMessageDialog(null, "Pogresni Podaci");
@@ -140,15 +161,18 @@ private static int GlobPassword;
 		
 			Statement myStmt = myConn.createStatement();
 			ResultSet result = myStmt
-					.executeQuery("SELECT hoursWorkedMonth, user_id, type_id FROM Users WHERE username = '" +usernameCheck+ "'");
+					.executeQuery("SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id FROM Users WHERE username = '" +usernameCheck+ "'");
 			//int testtest = result.getInt("hoursWorkedMonth");
 			if (result.next() == false) {
 				JOptionPane.showMessageDialog(null, "Pogresni Podaci");
 			}
 			MyMethods.setGlobHoursWorked(result.getInt("hoursWorkedMonth"));
 			MyMethods.setGlobID(result.getInt("user_id"));
-			MyMethods.setGlobType(result.getInt("type_id"));
-			
+			MyMethods.setGlobType(result.getString("type_id"));
+			MyMethods.setGlobUsername(result.getString("username"));
+			MyMethods.setGlobPassword(result.getString("password"));
+			MyMethods.setGlobFirstname(result.getString("first_name"));
+			MyMethods.setGlobLastname(result.getString("last_name"));
 			
 		} 
 		catch (Exception exc) {
