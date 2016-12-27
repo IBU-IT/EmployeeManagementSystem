@@ -154,7 +154,7 @@ public class NewInfo {
 				}
 			}
 		});
-		btnConfirm.setBounds(184, 269, 97, 25);
+		btnConfirm.setBounds(211, 232, 97, 25);
 		NewInfo.getContentPane().add(btnConfirm);
 
 		lblNewUserid = new JLabel("New userID");

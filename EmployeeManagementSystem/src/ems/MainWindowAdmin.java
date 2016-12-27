@@ -153,6 +153,23 @@ public class MainWindowAdmin {
 		btnNewButton.setBounds(45, 139, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
+		JButton btnNewButton_1 = new JButton("CHANGE USER PASSWORD");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				NewPass np = new NewPass();
+				
+				
+			}
+		});
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.setBounds(45, 230, 271, 49);
+		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
+		
 	}
 
 	protected void setVisible(boolean b) {

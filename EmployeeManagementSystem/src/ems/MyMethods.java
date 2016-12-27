@@ -98,6 +98,17 @@ private static String GlobPassword;
 	}
 	
 	//-------------------------------
+private static int globchangePass;
+	
+	
+	public static int getGlobchangePass() {
+		return globchangePass;
+	}
+	public static void setGlobchangePass(int globchangePass) {
+		MyMethods.globchangePass = globchangePass;
+	}
+	
+	//-------------------------------
 	private static int globHoursWorked;
 	
 	
@@ -109,7 +120,26 @@ private static String GlobPassword;
 	}
 	
 	//-------------------------------
+	public void changePass(String ChangePassUser, String ChangePass) {
+		try {
+			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
 	
+			Statement myStmt = myConn.createStatement();
+	
+			String sql	= "update users"
+						+ " set password = '"+ChangePass
+						+ "' where username='"+ChangePassUser+"';";
+			myStmt.executeUpdate(sql);
+			
+		
+		} catch (Exception exc) {
+		exc.printStackTrace();
+		}
+	}
+		
+	
+	
+	//-------------------------------
 	
 	public int login(String userText, String passText) {
 
