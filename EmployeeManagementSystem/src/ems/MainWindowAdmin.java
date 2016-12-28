@@ -41,7 +41,7 @@ import java.util.GregorianCalendar;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
+//  asmir
 
 public class MainWindowAdmin {
 	private JLabel lblClock;
