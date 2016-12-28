@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 
 import java.sql.*;
-
+//deki
 public class MyMethods {
 	static final String USER = "root";
 	static final String PASS = "sifrasifra";
