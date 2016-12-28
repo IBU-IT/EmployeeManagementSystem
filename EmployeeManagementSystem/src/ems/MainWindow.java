@@ -37,7 +37,6 @@ import java.util.GregorianCalendar;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-// test
 public class MainWindow {
 	private JLabel lblClock;
 	private JFrame frmEmployeeManagementSystem;
@@ -49,6 +48,7 @@ public class MainWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					// vi kako te?
 					MainWindow window = new MainWindow();
 					window.frmEmployeeManagementSystem.setVisible(true);
 				} catch (Exception e) {
