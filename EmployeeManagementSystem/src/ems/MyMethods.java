@@ -154,7 +154,7 @@ private static int globchangePass;
 					.executeQuery("SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id FROM Users WHERE username='" + userText
 							+ "' AND password='" + passText + "'");
 			if (result.next() == false) {
-				JOptionPane.showMessageDialog(null, "Pogresni Podaci");
+				JOptionPane.showMessageDialog(null, "Wrong information");
 			}
 			userPermision = result.getInt("type_id");
 			String username = result.getString("username");
@@ -195,7 +195,7 @@ private static int globchangePass;
 					.executeQuery("SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id FROM Users WHERE username = '" +usernameCheck+ "'");
 			//int testtest = result.getInt("hoursWorkedMonth");
 			if (result.next() == false) {
-				JOptionPane.showMessageDialog(null, "Pogresni Podaci");
+				JOptionPane.showMessageDialog(null, "Wrong information");
 			}
 			MyMethods.setGlobHoursWorked(result.getInt("hoursWorkedMonth"));
 			MyMethods.setGlobID(result.getInt("user_id"));
