@@ -26,6 +26,17 @@ private static String globLastname;
 	public static void setGlobLastname(String globLastname) {
 		MyMethods.globLastname = globLastname;
 	}
+	//-------------------------------
+	
+	private static double globSalary;
+		
+		public static double getGlobSalary() {
+			return globSalary;
+		}
+
+		public static void setGlobSalary(double globSalary) {
+			MyMethods.globSalary = globSalary;
+		}
 	
 	//-------------------------------
 private static String globFirstname;
@@ -151,7 +162,7 @@ private static int globchangePass;
 			Statement myStmt = myConn.createStatement();
 
 			ResultSet result = myStmt
-					.executeQuery("SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id FROM Users WHERE username='" + userText
+					.executeQuery("SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id, salary FROM Users WHERE username='" + userText
 							+ "' AND password='" + passText + "'");
 			if (result.next() == false) {
 				JOptionPane.showMessageDialog(null, "Wrong information");
@@ -163,6 +174,11 @@ private static int globchangePass;
 			int hw = result.getInt("hoursWorkedMonth");
 			MyMethods.setGlobID(userid);
 			MyMethods.setGlobHW(hw);
+			MyMethods.setGlobFirstname(result.getString("first_name"));
+			MyMethods.setGlobLastname(result.getString("last_name"));
+			MyMethods.setGlobUsername(username);
+			MyMethods.setGlobSalary(result.getDouble("salary"));
+			MyMethods.setGlobHoursWorked(result.getInt("hoursWorkedMonth"));
 			
 		} catch (Exception exc) {
 			exc.printStackTrace();

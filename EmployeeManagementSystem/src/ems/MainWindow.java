@@ -264,12 +264,63 @@ public class MainWindow {
 		JLabel lblEmployeeWindow = new JLabel("Employee Window");
 		lblEmployeeWindow.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmployeeWindow.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblEmployeeWindow.setBounds(344, 66, 255, 49);
+		lblEmployeeWindow.setBounds(414, 11, 255, 49);
 		frmEmployeeManagementSystem.getContentPane().add(lblEmployeeWindow);
 		
 		lblClock = new JLabel("Date&Time");
 		lblClock.setBounds(45, 372, 197, 16);
 		frmEmployeeManagementSystem.getContentPane().add(lblClock);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(446, 49, 197, 144);
+		frmEmployeeManagementSystem.getContentPane().add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel label = new JLabel(MyMethods.getGlobUsername());
+		label.setBounds(98, 11, 89, 14);
+		panel_2.add(label);
+		
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setBounds(25, 11, 67, 14);
+		panel_2.add(lblUsername);
+		lblUsername.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		JLabel lblFirstName = new JLabel("First name:");
+		lblFirstName.setBounds(25, 36, 67, 14);
+		panel_2.add(lblFirstName);
+		lblFirstName.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		JLabel label_1 = new JLabel(MyMethods.getGlobFirstname());
+		label_1.setBounds(98, 36, 89, 14);
+		panel_2.add(label_1);
+		
+		JLabel label_2 = new JLabel(MyMethods.getGlobLastname());
+		label_2.setBounds(98, 61, 89, 14);
+		panel_2.add(label_2);
+		
+		JLabel lblLastName = new JLabel("Last name:");
+		lblLastName.setBounds(25, 61, 67, 14);
+		panel_2.add(lblLastName);
+		lblLastName.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		JLabel lblHoursWorked = new JLabel("Worked:");
+		lblHoursWorked.setBounds(25, 86, 67, 14);
+		panel_2.add(lblHoursWorked);
+		lblHoursWorked.setHorizontalAlignment(SwingConstants.RIGHT);
+		String hoursWorked = Integer.toString(MyMethods.getGlobHoursWorked());
+		JLabel label_3 = new JLabel(hoursWorked);
+		label_3.setBounds(98, 86, 89, 14);
+		panel_2.add(label_3);
+		double pay = MyMethods.getGlobHoursWorked() * MyMethods.getGlobSalary();
+		String salary = Double.toString(pay);
+		JLabel label_4 = new JLabel(salary);
+		label_4.setBounds(98, 111, 89, 14);
+		panel_2.add(label_4);
+		
+		JLabel lblSalary = new JLabel("Salary:");
+		lblSalary.setBounds(25, 111, 67, 14);
+		panel_2.add(lblSalary);
+		lblSalary.setHorizontalAlignment(SwingConstants.RIGHT);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		
