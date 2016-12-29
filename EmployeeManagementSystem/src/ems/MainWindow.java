@@ -124,7 +124,7 @@ public class MainWindow {
 		arrTime1.setToolTipText("");
 		arrTime1.setBounds(32, 38, 45, 20);
 		panel.add(arrTime1);
-		arrTime1.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+		arrTime1.setModel(new DefaultComboBoxModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		arrTime1.setSelectedIndex(0);
 		
 		JTextPane txtpnHour = new JTextPane();
@@ -135,7 +135,7 @@ public class MainWindow {
 		panel.add(txtpnHour);
 		
 		JComboBox arrTime2 = new JComboBox();
-		arrTime2.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"}));
+		arrTime2.setModel(new DefaultComboBoxModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"}));
 		arrTime2.setBounds(109, 38, 45, 20);
 		panel.add(arrTime2);
 		
@@ -161,7 +161,7 @@ public class MainWindow {
 		panel_1.add(txtpnLeavingTime);
 		
 		JComboBox leavTime1 = new JComboBox();
-		leavTime1.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
+		leavTime1.setModel(new DefaultComboBoxModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"}));
 		leavTime1.setBounds(32, 38, 45, 20);
 		panel_1.add(leavTime1);
 		
@@ -173,7 +173,7 @@ public class MainWindow {
 		panel_1.add(textPane_1);
 		
 		JComboBox leavTime2 = new JComboBox();
-		leavTime2.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"}));
+		leavTime2.setModel(new DefaultComboBoxModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"}));
 		leavTime2.setBounds(109, 38, 45, 20);
 		panel_1.add(leavTime2);
 		
@@ -321,6 +321,16 @@ public class MainWindow {
 		lblSalary.setBounds(25, 111, 67, 14);
 		panel_2.add(lblSalary);
 		lblSalary.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		JButton btnNewButton = new JButton("Change Password");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				NewPassForUsers window = new NewPassForUsers();
+			}
+		});
+		btnNewButton.setBounds(446, 204, 197, 23);
+		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		
