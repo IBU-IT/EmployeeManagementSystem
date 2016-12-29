@@ -101,15 +101,15 @@ public class MainWindowAdmin {
 	 */
 	private void initialize() {
 		setFrmEmployeeManagementSystem(new JFrame());
-		getFrmEmployeeManagementSystem().setVisible(true);
 		getFrmEmployeeManagementSystem().setResizable(false);
 		getFrmEmployeeManagementSystem().getContentPane().setBackground(Color.WHITE);
 		getFrmEmployeeManagementSystem().setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getFrmEmployeeManagementSystem().setTitle("Employee Management System");
-		getFrmEmployeeManagementSystem().setBounds(100, 100, 685, 436);
+		getFrmEmployeeManagementSystem().setSize( 685, 436);
 		getFrmEmployeeManagementSystem().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getFrmEmployeeManagementSystem().getContentPane().setLayout(null);
-		
+		getFrmEmployeeManagementSystem().setLocationRelativeTo(null);
+		getFrmEmployeeManagementSystem().setVisible(true);
 		JButton btnExit = new JButton("EXIT");
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override

@@ -54,10 +54,11 @@ public class checkHours {
 		frmEmsCheck.setType(Type.POPUP);
 		frmEmsCheck.setResizable(false);
 		frmEmsCheck.setTitle("User full report");
-		frmEmsCheck.setVisible(true);
-		frmEmsCheck.setBounds(100, 100, 450, 300);
-		frmEmsCheck.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
+		frmEmsCheck.setSize( 450, 300);
+		frmEmsCheck.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmEmsCheck.setLocationRelativeTo(null);
+		frmEmsCheck.setVisible(true);
 		JPanel panel = new JPanel();
 		frmEmsCheck.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);

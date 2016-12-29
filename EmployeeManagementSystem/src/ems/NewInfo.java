@@ -49,6 +49,7 @@ public class NewInfo {
 			public void run() {
 				try {
 					NewInfo window = new NewInfo();
+					window.getNewInfo().setLocationRelativeTo(null);
 					window.getNewInfo().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -67,15 +68,16 @@ public class NewInfo {
 
 	private void initialize() {
 		setNewInfo(new JFrame());
-		getNewInfo().setVisible(true);
+		
 		getNewInfo().setResizable(false);
 		getNewInfo().setIconImage(
 				Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getNewInfo().setTitle("Employee Management System");
-		getNewInfo().setBounds(100, 100, 508, 335);
+		getNewInfo().setSize( 508, 335);
 		getNewInfo().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		NewInfo.getContentPane().setLayout(null);
-
+		getNewInfo().setLocationRelativeTo(null);
+		getNewInfo().setVisible(true);
 		JLabel lblNewUsername = new JLabel("New username:");
 		lblNewUsername.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewUsername.setBounds(132, 72, 100, 16);

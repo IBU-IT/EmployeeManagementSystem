@@ -51,12 +51,13 @@ public class DeleteUser {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);
+		
 		usernameDelete = new JTextField();
-		usernameDelete.setBounds(208, 89, 86, 20);
+		usernameDelete.setSize( 86, 20);
 		frame.getContentPane().add(usernameDelete);
 		usernameDelete.setColumns(10);
-		
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setBounds(143, 92, 65, 14);
 		frame.getContentPane().add(lblUsername);

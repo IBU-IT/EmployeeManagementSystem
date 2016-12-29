@@ -57,15 +57,16 @@ public class NewPass  {
 
 	private void initialize() {
 		setNewPass(new JFrame());
-		getNewPass().setVisible(true);
+		
 		getNewPass().setResizable(false);
 		getNewPass().setIconImage(
 				Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getNewPass().setTitle("Employee Management System");
-		getNewPass().setBounds(100, 100, 453, 268);
+		getNewPass().setSize( 453, 268);
 		getNewPass().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		NewPass.getContentPane().setLayout(null);
-		
+		getNewPass().setLocationRelativeTo(null);
+		getNewPass().setVisible(true);
 		PassInput = new JTextField();
 		PassInput.setBounds(223, 87, 116, 22);
 		NewPass.getContentPane().add(PassInput);

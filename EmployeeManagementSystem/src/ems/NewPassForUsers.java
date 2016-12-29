@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class NewPassForUsers  {
+public class NewPassForUsers {
 
 	private JFrame NewPass;
 	private JTextField PassInput;
@@ -40,45 +40,44 @@ public class NewPassForUsers  {
 		});
 	}
 
-
 	protected void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public NewPassForUsers(){
+	public NewPassForUsers() {
 		initialize();
 
 	}
 
-
 	private void initialize() {
 		setNewPass(new JFrame());
-		getNewPass().setVisible(true);
+
 		getNewPass().setResizable(false);
 		getNewPass().setIconImage(
 				Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getNewPass().setTitle("Employee Management System");
-		getNewPass().setBounds(100, 100, 453, 268);
+		getNewPass().setSize(453, 268);
 		getNewPass().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		NewPass.getContentPane().setLayout(null);
-		
+		getNewPass().setLocationRelativeTo(null);
+		getNewPass().setVisible(true);
 		PassInput = new JTextField();
 		PassInput.setBounds(223, 87, 116, 22);
 		NewPass.getContentPane().add(PassInput);
 		PassInput.setColumns(10);
-		
+
 		JButton btnChangePass = new JButton("Set new password");
 		btnChangePass.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+
 				MyMethods mthds = new MyMethods();
-				mthds.changePass(MyMethods.getGlobUsername(),PassInput.getText());
-				JOptionPane.showMessageDialog(null,"Your new password is "+PassInput.getText());
+				mthds.changePass(MyMethods.getGlobUsername(), PassInput.getText());
+				JOptionPane.showMessageDialog(null, "Your new password is " + PassInput.getText());
 				getNewPass().setVisible(false);
 			}
 		});
@@ -88,12 +87,12 @@ public class NewPassForUsers  {
 		});
 		btnChangePass.setBounds(132, 139, 173, 25);
 		NewPass.getContentPane().add(btnChangePass);
-		
+
 		JLabel lblNewPassword = new JLabel("New password:");
 		lblNewPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewPassword.setBounds(104, 90, 107, 16);
 		NewPass.getContentPane().add(lblNewPassword);
-		
+
 		btnExit = new JButton("Exit");
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
@@ -108,6 +107,7 @@ public class NewPassForUsers  {
 		btnExit.setBounds(132, 175, 173, 25);
 		NewPass.getContentPane().add(btnExit);
 	}
+
 	public JFrame getNewPass() {
 		return NewPass;
 	}

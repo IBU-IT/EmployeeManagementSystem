@@ -35,10 +35,8 @@ import java.awt.event.KeyEvent;
 
 public class LoginKlasa extends JFrame {
 
-	
-	
 	private static String globuserText;
-	
+
 	public static String getGlobuserText() {
 		return globuserText;
 	}
@@ -46,7 +44,7 @@ public class LoginKlasa extends JFrame {
 	public static void setuserText(String globuserText) {
 		LoginKlasa.globuserText = globuserText;
 	}
-	
+
 	public String userText;
 	public String passText;
 	private JPanel contentPane;
@@ -72,22 +70,23 @@ public class LoginKlasa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
+
 	public LoginKlasa() {
-		
+
 		setUndecorated(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginKlasa.class.getResource("/images/burc.jpg")));
 		setResizable(false);
-		setVisible(true);
+
 		setTitle("Employee Management System - Login");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 339);
+		setSize(450, 339);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		setLocationRelativeTo(null);
+		setVisible(true);
 		JButton login = new JButton("LOGIN");
 		login.addKeyListener(new KeyAdapter() {
 			@Override
@@ -108,18 +107,17 @@ public class LoginKlasa extends JFrame {
 				MyMethods mthds = new MyMethods();
 				int userPerm = mthds.login(userText, passText);
 				if (userPerm == 1) {
-					
+
 					setVisible(false);
 					MainWindowAdmin nwa = new MainWindowAdmin();
-					
+
 				} else if (userPerm == 2) {
-					
+
 					MainWindow nw = new MainWindow();
 					setVisible(false);
 				} else {
 					// do nothing
 				}
-				
 
 			}
 
@@ -173,6 +171,6 @@ public class LoginKlasa extends JFrame {
 
 	protected static void setGlobuserText(String userText2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

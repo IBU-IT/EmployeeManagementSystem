@@ -45,6 +45,7 @@ public class UserReport {
 	 */
 	public UserReport() {
 		initialize();
+		getUserReport().setLocationRelativeTo(null);
 		getUserReport().setVisible(true);
 	}
 
@@ -157,7 +158,7 @@ public class UserReport {
 		});
 		btnExit.setBounds(335, 227, 89, 23);
 		UserReport.getContentPane().add(btnExit);
-		UserReport.setBounds(100, 100, 450, 300);
+		UserReport.setSize( 450, 300);
 		UserReport.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 }

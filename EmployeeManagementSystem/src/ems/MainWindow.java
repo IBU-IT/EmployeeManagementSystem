@@ -96,7 +96,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frmEmployeeManagementSystem = new JFrame();
-		frmEmployeeManagementSystem.setVisible(true);
+		
 		frmEmployeeManagementSystem.setResizable(false);
 		frmEmployeeManagementSystem.getContentPane().setBackground(Color.WHITE);
 		frmEmployeeManagementSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/images/burc.jpg")));
@@ -104,8 +104,8 @@ public class MainWindow {
 		frmEmployeeManagementSystem.setBounds(100, 100, 685, 436);
 		frmEmployeeManagementSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmEmployeeManagementSystem.getContentPane().setLayout(null);
-		
-		
+		frmEmployeeManagementSystem.setLocationRelativeTo(null);
+		frmEmployeeManagementSystem.setVisible(true);
 		JPanel panel = new JPanel();
 		panel.setBounds(30, 30, 212, 85);
 		frmEmployeeManagementSystem.getContentPane().add(panel);
