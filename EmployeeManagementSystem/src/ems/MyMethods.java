@@ -241,8 +241,8 @@ private static int globchangePass;
 
 		}
 	}
-	public int calculateSalary (String username) {
-		int salary = 0;
+	public double calculateSalary (String username) {
+		double salary = 0;
 		
 		try {
 			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -255,7 +255,7 @@ private static int globchangePass;
 				JOptionPane.showMessageDialog(null, "Wrong information");
 			}
 			int hours = result.getInt("hoursWorkedMonth");
-			salary = result.getInt("salary");
+			salary = result.getDouble("salary");
 			salary = salary * hours;
 			
 		} 
