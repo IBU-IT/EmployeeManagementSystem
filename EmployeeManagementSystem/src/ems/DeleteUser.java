@@ -53,7 +53,7 @@ public class DeleteUser {
 		frame.getContentPane().setLayout(null);
 		
 		usernameDelete = new JTextField();
-		usernameDelete.setSize( 86, 20);
+		usernameDelete.setBounds(220,92, 86, 20);
 		frame.getContentPane().add(usernameDelete);
 		usernameDelete.setColumns(10);
 		frame.setLocationRelativeTo(null);
