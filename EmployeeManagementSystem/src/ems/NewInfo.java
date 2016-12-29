@@ -39,6 +39,7 @@ public class NewInfo {
 	public String Lastname;
 	public String TypeID;
 	private JTextField idText;
+	private JButton btnCancel;
 
 	/**
 	 * Launch the application.
@@ -71,7 +72,7 @@ public class NewInfo {
 		getNewInfo().setIconImage(
 				Toolkit.getDefaultToolkit().getImage(MainWindowAdmin.class.getResource("/images/burc.jpg")));
 		getNewInfo().setTitle("Employee Management System");
-		getNewInfo().setBounds(100, 100, 685, 436);
+		getNewInfo().setBounds(100, 100, 508, 335);
 		getNewInfo().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		NewInfo.getContentPane().setLayout(null);
 
@@ -141,10 +142,10 @@ public class NewInfo {
 				int TypeID = Integer.parseInt(TypeIDText.getText());
 				MyMethods mthds = new MyMethods();
 				mthds.newUser(UserID, Username, Pass, Firstname, Lastname, TypeID);
-				
+				getNewInfo().setVisible(false);
 			}
 		});
-		btnConfirm.setBounds(211, 232, 97, 25);
+		btnConfirm.setBounds(147, 232, 97, 25);
 		NewInfo.getContentPane().add(btnConfirm);
 		
 		JLabel lblUserId = new JLabel("User ID");
@@ -156,6 +157,16 @@ public class NewInfo {
 		idText.setColumns(10);
 		idText.setBounds(256, 43, 116, 22);
 		NewInfo.getContentPane().add(idText);
+		
+		btnCancel = new JButton("Cancel");
+		btnCancel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				getNewInfo().setVisible(false);
+			}
+		});
+		btnCancel.setBounds(256, 233, 97, 25);
+		NewInfo.getContentPane().add(btnCancel);
 
 	}
 

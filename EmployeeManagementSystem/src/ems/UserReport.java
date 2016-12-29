@@ -16,6 +16,8 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UserReport {
 
@@ -43,6 +45,7 @@ public class UserReport {
 	 */
 	public UserReport() {
 		initialize();
+		getUserReport().setVisible(true);
 	}
 
 	/**
@@ -95,13 +98,13 @@ public class UserReport {
 		panel.add(lblusername);
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(215, 175, 102, 16);
+		panel_4.setBounds(215, 175, 69, 16);
 		UserReport.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 		
-		JLabel lblhours = new JLabel(MyMethods.getGlobHoursWorked()+" hours ");
+		JLabel lblhours = new JLabel("0 ");
 		lblhours.setHorizontalAlignment(SwingConstants.CENTER);
-		lblhours.setBounds(0, 0, 102, 16);
+		lblhours.setBounds(0, 0, 79, 16);
 		panel_4.add(lblhours);
 		
 		JPanel panel_1 = new JPanel();
@@ -143,6 +146,17 @@ public class UserReport {
 		lbltypeID.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltypeID.setBounds(0, 0, 153, 16);
 		panel_5.add(lbltypeID);
+		
+		JButton btnExit = new JButton("OK");
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				getUserReport().setVisible(false);
+				
+			}
+		});
+		btnExit.setBounds(335, 227, 89, 23);
+		UserReport.getContentPane().add(btnExit);
 		UserReport.setBounds(100, 100, 450, 300);
 		UserReport.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

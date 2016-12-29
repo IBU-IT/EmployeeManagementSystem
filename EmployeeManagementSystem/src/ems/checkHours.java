@@ -54,6 +54,7 @@ public class checkHours {
 		frmEmsCheck.setType(Type.POPUP);
 		frmEmsCheck.setResizable(false);
 		frmEmsCheck.setTitle("User full report");
+		frmEmsCheck.setVisible(true);
 		frmEmsCheck.setBounds(100, 100, 450, 300);
 		frmEmsCheck.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -64,13 +65,13 @@ public class checkHours {
 		usernameInput = new JTextField();
 		
 		usernameInput.setHorizontalAlignment(SwingConstants.LEFT);
-		usernameInput.setBounds(198, 83, 86, 20);
+		usernameInput.setBounds(208, 83, 86, 20);
 		usernameInput.setColumns(10);
 		panel.add(usernameInput);
 		
 		JLabel label = new JLabel("Username");
 		label.setHorizontalAlignment(SwingConstants.LEFT);
-		label.setBounds(131, 86, 70, 14);
+		label.setBounds(141, 86, 70, 14);
 		panel.add(label);
 		
 		JButton btnCheck = new JButton("CHECK");
@@ -88,8 +89,18 @@ public class checkHours {
 				UserReport.UserReport.setVisible(true);
 			}
 		});
-		btnCheck.setBounds(131, 114, 153, 49);
+		btnCheck.setBounds(141, 114, 153, 23);
 		panel.add(btnCheck);
+		
+		JButton btnNewButton = new JButton("EXIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmEmsCheck.setVisible(false);
+				
+			}
+		});
+		btnNewButton.setBounds(141, 148, 153, 23);
+		panel.add(btnNewButton);
 	}
 
 }
