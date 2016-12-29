@@ -162,10 +162,14 @@ public class MainWindowAdmin {
 			}
 		});
 		btnCheck.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCheck.setBounds(45, 88, 271, 49);
+		btnCheck.setBounds(45, 26, 271, 49);
 		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
 		
 		JButton btnNewButton = new JButton("ADD NEW USER");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -174,7 +178,7 @@ public class MainWindowAdmin {
 			}
 			
 		});
-		btnNewButton.setBounds(45, 150, 271, 49);
+		btnNewButton.setBounds(45, 88, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CHANGE USER PASSWORD");
@@ -192,7 +196,7 @@ public class MainWindowAdmin {
 		});
 		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_1.setBounds(45, 212, 271, 49);
+		btnNewButton_1.setBounds(45, 150, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DELETE USER");
@@ -211,13 +215,32 @@ public class MainWindowAdmin {
 			
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_2.setBounds(45, 274, 271, 49);
+		btnNewButton_2.setBounds(45, 212, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_2);
 		
 	
 		lblClock = new JLabel("Date&Time");
 		lblClock.setBounds(45, 376, 297, 16);
 		frmEmployeeManagementSystem.getContentPane().add(lblClock);
+		
+		JButton btnCalculateSalary = new JButton("CALCULATE SALARY");
+		btnCalculateSalary.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCalculateSalary.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				checkSalary window = new checkSalary();
+				
+				
+				
+				
+			}
+		});
+		btnCalculateSalary.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCalculateSalary.setBounds(45, 272, 271, 49);
+		frmEmployeeManagementSystem.getContentPane().add(btnCalculateSalary);
 		
 	}
 

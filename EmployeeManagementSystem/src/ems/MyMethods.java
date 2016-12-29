@@ -241,4 +241,27 @@ private static int globchangePass;
 
 		}
 	}
+	public int calculateSalary (String username) {
+		int salary = 0;
+		
+		try {
+			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
+		
+			Statement myStmt = myConn.createStatement();
+			ResultSet result = myStmt
+					.executeQuery("SELECT hoursWorkedMonth, salary FROM Users WHERE username = '" +username+ "'");
+			
+			if (result.next() == false) {
+				JOptionPane.showMessageDialog(null, "Wrong information");
+			}
+			int hours = result.getInt("hoursWorkedMonth");
+			salary = result.getInt("salary");
+			salary = salary * hours;
+			
+		} 
+		catch (Exception exc) {
+			exc.printStackTrace();
+		}
+		return salary;
+	}
 }
