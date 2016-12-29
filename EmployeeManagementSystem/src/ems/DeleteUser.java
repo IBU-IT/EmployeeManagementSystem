@@ -1,5 +1,5 @@
 package ems;
-
+// asdfghjk
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DeleteUser {
 
@@ -51,12 +53,12 @@ public class DeleteUser {
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		usernameDelete = new JTextField();
-		usernameDelete.setBounds(216, 89, 86, 20);
+		usernameDelete.setBounds(208, 89, 86, 20);
 		frame.getContentPane().add(usernameDelete);
 		usernameDelete.setColumns(10);
 		
-		JLabel lblUsername = new JLabel("username");
-		lblUsername.setBounds(141, 92, 65, 14);
+		JLabel lblUsername = new JLabel("Username");
+		lblUsername.setBounds(143, 92, 65, 14);
 		frame.getContentPane().add(lblUsername);
 		
 		JButton btnDelete = new JButton("Delete");
@@ -71,8 +73,22 @@ public class DeleteUser {
 				
 			}
 		});
-		btnDelete.setBounds(192, 120, 89, 23);
+		btnDelete.setBounds(130, 120, 89, 23);
 		frame.getContentPane().add(btnDelete);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				frame.setVisible(false);
+			}
+		});
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnExit.setBounds(229, 120, 89, 23);
+		frame.getContentPane().add(btnExit);
 	}
 	public JFrame getDeleteUser() {
 		return DeleteUser;

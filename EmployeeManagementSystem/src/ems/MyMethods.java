@@ -224,4 +224,21 @@ private static int globchangePass;
 		exc.printStackTrace();
 		}
 	}
+	public void newUser(int UserID, String Username, String Pass, String Firstname, String Lastname, int TypeID){
+		try {
+			
+			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement myStmt = myConn.createStatement();
+
+			int result = myStmt.executeUpdate("INSERT INTO users " + "VALUES ('"+UserID+"','" + Username
+					+ "','" + Pass + "','" + Firstname + "','" + Lastname + "',0,'" + TypeID + "' )");
+			JOptionPane.showMessageDialog(null, "User "+Username+" has been added to the database.");
+
+			myConn.close();
+		} catch (Exception e1) {
+			System.err.println("Got an exception! ");
+			System.err.println(e1.getMessage());
+
+		}
+	}
 }

@@ -21,6 +21,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class NewInfo {
 
@@ -30,14 +32,13 @@ public class NewInfo {
 	private JTextField FirstnameText;
 	private JTextField LastnameText;
 	private JTextField TypeIDText;
-	private JLabel lblNewUserid;
-	public JTextField UserIDtext;
 	public String UserID;
 	public String Pass;
 	public String Username;
 	public String Firstname;
 	public String Lastname;
 	public String TypeID;
+	private JTextField idText;
 
 	/**
 	 * Launch the application.
@@ -124,47 +125,37 @@ public class NewInfo {
 		TypeIDText.setBounds(256, 188, 116, 22);
 		NewInfo.getContentPane().add(TypeIDText);
 
-		UserIDtext = new JTextField();
-		UserIDtext.setColumns(10);
-		UserIDtext.setBounds(256, 38, 116, 22);
-		NewInfo.getContentPane().add(UserIDtext);
-
 		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnConfirm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				try {
-					UserID = UserIDtext.getText();
-					Pass = PasswordText.getText();
-					Username = UsernameText.getText();
-					Firstname = FirstnameText.getText();
-					Lastname = LastnameText.getText();
-					TypeID = TypeIDText.getText();
-					Connection myConn = DriverManager.getConnection(
-							"jdbc:mysql://localhost:3306/nova_sema?autoReconnect=true&useSSL=false", "root",
-							"sifrasifra");
-					Statement myStmt = myConn.createStatement();
-
-					int result = myStmt.executeUpdate("INSERT INTO users " + "VALUES ('" + UserID + "', '" + Username
-							+ "','" + Pass + "','" + Firstname + "','" + Lastname + "',0,'" + TypeID + "' )");
-					JOptionPane.showMessageDialog(null, "The "+Username+" user has been added");
-
-					myConn.close();
-				} catch (Exception e1) {
-					System.err.println("Got an exception! ");
-					System.err.println(e1.getMessage());
-
-				}
+				int UserID = Integer.parseInt(idText.getText());
+				String Pass = PasswordText.getText();
+				String Username = UsernameText.getText();
+				String Firstname = FirstnameText.getText();
+				String Lastname = LastnameText.getText();
+				int TypeID = Integer.parseInt(TypeIDText.getText());
+				MyMethods mthds = new MyMethods();
+				mthds.newUser(UserID, Username, Pass, Firstname, Lastname, TypeID);
 				
 			}
 		});
 		btnConfirm.setBounds(211, 232, 97, 25);
 		NewInfo.getContentPane().add(btnConfirm);
-
-		lblNewUserid = new JLabel("New userID");
-		lblNewUserid.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewUserid.setBounds(132, 41, 100, 16);
-		NewInfo.getContentPane().add(lblNewUserid);
+		
+		JLabel lblUserId = new JLabel("User ID");
+		lblUserId.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblUserId.setBounds(132, 43, 100, 16);
+		NewInfo.getContentPane().add(lblUserId);
+		
+		idText = new JTextField();
+		idText.setColumns(10);
+		idText.setBounds(256, 43, 116, 22);
+		NewInfo.getContentPane().add(idText);
 
 	}
 

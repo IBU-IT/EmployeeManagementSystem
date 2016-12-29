@@ -22,6 +22,7 @@ public class NewPass  {
 	private JFrame NewPass;
 	private JTextField PassInput;
 	private JTextField UsernameInput;
+	private JButton btnExit;
 
 	/**
 	 * Launch the application.
@@ -99,6 +100,20 @@ public class NewPass  {
 		JLabel lblNewPassword = new JLabel("New password");
 		lblNewPassword.setBounds(104, 90, 107, 16);
 		NewPass.getContentPane().add(lblNewPassword);
+		
+		btnExit = new JButton("Exit");
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				getNewPass().setVisible(false);
+			}
+		});
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnExit.setBounds(132, 175, 173, 25);
+		NewPass.getContentPane().add(btnExit);
 	}
 	public JFrame getNewPass() {
 		return NewPass;
