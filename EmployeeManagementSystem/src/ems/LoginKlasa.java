@@ -35,7 +35,7 @@ import java.awt.event.KeyEvent;
 
 public class LoginKlasa extends JFrame {
 
-	private static String globuserText;
+	public static String globuserText;
 
 	public static String getGlobuserText() {
 		return globuserText;

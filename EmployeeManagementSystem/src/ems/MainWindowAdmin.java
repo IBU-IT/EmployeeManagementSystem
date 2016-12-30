@@ -43,6 +43,10 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 
+
+import javax.swing.ImageIcon;
+
+
 public class MainWindowAdmin {
 	private JLabel lblClock;
 	private JFrame frmEmployeeManagementSystem;
