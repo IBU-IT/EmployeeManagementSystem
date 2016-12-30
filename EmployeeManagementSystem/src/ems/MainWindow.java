@@ -1,7 +1,7 @@
 package ems;
 
 import java.awt.EventQueue;
-
+import org.apache.commons.io.FilenameUtils;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -37,6 +37,8 @@ import java.util.GregorianCalendar;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+
 public class MainWindow {
 	private JLabel lblClock;
 	private JFrame frmEmployeeManagementSystem;
@@ -48,7 +50,7 @@ public class MainWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// vi kako te?
+
 					MainWindow window = new MainWindow();
 					window.frmEmployeeManagementSystem.setVisible(true);
 				} catch (Exception e) {
@@ -57,32 +59,35 @@ public class MainWindow {
 			}
 		});
 	}
-	public void clock (){
-		Thread clock=new Thread(){
-			public void run(){
-				try{
-					for(;;){
-					Calendar cal=new GregorianCalendar();
-					int day=cal.get(Calendar.DAY_OF_MONTH);
-					int month =cal.get(Calendar.MONTH);
-					int year =cal.get(Calendar.YEAR);
-					
-					int second=cal.get(Calendar.SECOND);
-					int minute =cal.get(Calendar.MINUTE);
-					int hour =cal.get(Calendar.HOUR);
-					lblClock.setText("Time: "+hour+ ":"+minute+":"+second+	"       Date: "+day+"/"+month+"/"+year);
 
-					sleep(1000);
+	public void clock() {
+		Thread clock = new Thread() {
+			public void run() {
+				try {
+					for (;;) {
+						Calendar cal = new GregorianCalendar();
+						int day = cal.get(Calendar.DAY_OF_MONTH);
+						int month = cal.get(Calendar.MONTH);
+						int year = cal.get(Calendar.YEAR);
+
+						int second = cal.get(Calendar.SECOND);
+						int minute = cal.get(Calendar.MINUTE);
+						int hour = cal.get(Calendar.HOUR);
+						lblClock.setText("Time: " + hour + ":" + minute + ":" + second + "       Date: " + day + "/"
+								+ month + "/" + year);
+
+						sleep(1000);
 					}
-				}catch (InterruptedException e){
+				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 		};
 		clock.start();
-		}
+	}
+
 	/**
 	 * Create the application.
 	 */
@@ -323,6 +328,7 @@ public class MainWindow {
 		lblSalary.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JButton btnNewButton = new JButton("Change Password");
+		
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -331,6 +337,14 @@ public class MainWindow {
 		});
 		btnNewButton.setBounds(446, 204, 197, 23);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
+		JOptionPane.showMessageDialog(null, MyMethods.getGlobUsername());
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon("EmployeeManagementSystem\\EmployeeManagementSystem\\EmployeeManagementSystem\\demir.jpg"));
+		
+		lblNewLabel.setBounds(288, 211, 134, 121);
+		frmEmployeeManagementSystem.getContentPane().add(lblNewLabel);
+		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		
