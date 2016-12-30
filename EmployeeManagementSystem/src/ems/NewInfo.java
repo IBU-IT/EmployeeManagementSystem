@@ -23,6 +23,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class NewInfo {
 
@@ -31,7 +33,6 @@ public class NewInfo {
 	private JTextField PasswordText;
 	private JTextField FirstnameText;
 	private JTextField LastnameText;
-	private JTextField TypeIDText;
 	public String UserID;
 	public String Pass;
 	public String Username;
@@ -75,60 +76,32 @@ public class NewInfo {
 		getNewInfo().setTitle("Employee Management System");
 		getNewInfo().setSize( 508, 335);
 		getNewInfo().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		NewInfo.getContentPane().setLayout(null);
 		getNewInfo().setLocationRelativeTo(null);
 		getNewInfo().setVisible(true);
-		JLabel lblNewUsername = new JLabel("New username:");
-		lblNewUsername.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewUsername.setBounds(132, 72, 100, 16);
-		NewInfo.getContentPane().add(lblNewUsername);
-
-		JLabel lblNewPassword = new JLabel("New password:");
-		lblNewPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewPassword.setBounds(132, 101, 100, 16);
-		NewInfo.getContentPane().add(lblNewPassword);
-
-		JLabel label_5 = new JLabel("First name:");
-		label_5.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_5.setBounds(132, 130, 75, 16);
-		NewInfo.getContentPane().add(label_5);
-
-		JLabel label_6 = new JLabel("Last name:");
-		label_6.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_6.setBounds(132, 159, 75, 16);
-		NewInfo.getContentPane().add(label_6);
-
-		JLabel label_11 = new JLabel("Type ID:");
-		label_11.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_11.setBounds(132, 188, 75, 16);
-		NewInfo.getContentPane().add(label_11);
+		NewInfo.getContentPane().setLayout(null);
 
 		UsernameText = new JTextField();
-		UsernameText.setBounds(256, 72, 116, 22);
+		UsernameText.setBounds(255, 41, 116, 22);
 		NewInfo.getContentPane().add(UsernameText);
 		UsernameText.setColumns(10);
 
 		PasswordText = new JTextField();
+		PasswordText.setBounds(255, 72, 116, 22);
 		PasswordText.setColumns(10);
-		PasswordText.setBounds(256, 104, 116, 22);
 		NewInfo.getContentPane().add(PasswordText);
 
 		FirstnameText = new JTextField();
+		FirstnameText.setBounds(255, 98, 116, 22);
 		FirstnameText.setColumns(10);
-		FirstnameText.setBounds(256, 130, 116, 22);
 		NewInfo.getContentPane().add(FirstnameText);
 
 		LastnameText = new JTextField();
+		LastnameText.setBounds(255, 127, 116, 22);
 		LastnameText.setColumns(10);
-		LastnameText.setBounds(256, 159, 116, 22);
 		NewInfo.getContentPane().add(LastnameText);
 
-		TypeIDText = new JTextField();
-		TypeIDText.setColumns(10);
-		TypeIDText.setBounds(256, 188, 116, 22);
-		NewInfo.getContentPane().add(TypeIDText);
-
 		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setBounds(147, 232, 97, 25);
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -136,39 +109,82 @@ public class NewInfo {
 		btnConfirm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int UserID = Integer.parseInt(idText.getText());
+				int UserType = 0;
+				if (MyMethods.getGlobTypeStr().equals("Admin")) {
+					UserType = 1;
+				}
+				else if (MyMethods.getGlobTypeStr().equals("Employee")) {
+					UserType = 2;
+				}
+				int salary = Integer.parseInt(idText.getText());
 				String Pass = PasswordText.getText();
 				String Username = UsernameText.getText();
 				String Firstname = FirstnameText.getText();
 				String Lastname = LastnameText.getText();
-				int TypeID = Integer.parseInt(TypeIDText.getText());
+				
 				MyMethods mthds = new MyMethods();
-				mthds.newUser(Username, Pass, Firstname, Lastname, TypeID);
+				mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 				getNewInfo().setVisible(false);
 			}
 		});
-		btnConfirm.setBounds(147, 232, 97, 25);
 		NewInfo.getContentPane().add(btnConfirm);
 		
-		JLabel lblUserId = new JLabel("User ID");
+		JLabel lblUserId = new JLabel("Salary per hour:");
+		lblUserId.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUserId.setBounds(100, 183, 144, 16);
 		lblUserId.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblUserId.setBounds(132, 43, 100, 16);
 		NewInfo.getContentPane().add(lblUserId);
 		
 		idText = new JTextField();
+		idText.setBounds(255, 181, 116, 22);
 		idText.setColumns(10);
-		idText.setBounds(256, 43, 116, 22);
 		NewInfo.getContentPane().add(idText);
 		
 		btnCancel = new JButton("Cancel");
+		btnCancel.setBounds(256, 233, 97, 25);
 		btnCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				getNewInfo().setVisible(false);
 			}
 		});
-		btnCancel.setBounds(256, 233, 97, 25);
 		NewInfo.getContentPane().add(btnCancel);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(255, 155, 116, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Admin", "Employee"}));
+		MyMethods.setGlobTypeStr((String)comboBox.getSelectedItem());
+		NewInfo.getContentPane().add(comboBox);
+		
+		JLabel lblUserType = new JLabel("User type:");
+		lblUserType.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUserType.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblUserType.setBounds(100, 159, 144, 16);
+		NewInfo.getContentPane().add(lblUserType);
+		
+		JLabel lblLastName = new JLabel("Last name:");
+		lblLastName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblLastName.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblLastName.setBounds(101, 132, 144, 16);
+		NewInfo.getContentPane().add(lblLastName);
+		
+		JLabel lblFirstName = new JLabel("First name:");
+		lblFirstName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFirstName.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblFirstName.setBounds(101, 103, 144, 16);
+		NewInfo.getContentPane().add(lblFirstName);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblPassword.setBounds(101, 74, 144, 16);
+		NewInfo.getContentPane().add(lblPassword);
+		
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblUsername.setBounds(100, 45, 144, 16);
+		NewInfo.getContentPane().add(lblUsername);
 
 	}
 

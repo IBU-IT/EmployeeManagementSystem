@@ -102,8 +102,8 @@ public class UserReport {
 		panel_4.setBounds(215, 175, 69, 16);
 		UserReport.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
-		
-		JLabel lblhours = new JLabel("0 ");
+		String hwConv = Integer.toString(MyMethods.getGlobHoursWorked());
+		JLabel lblhours = new JLabel(hwConv);
 		lblhours.setHorizontalAlignment(SwingConstants.CENTER);
 		lblhours.setBounds(0, 0, 79, 16);
 		panel_4.add(lblhours);
@@ -142,8 +142,14 @@ public class UserReport {
 		panel_5.setBounds(136, 204, 153, 16);
 		UserReport.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
-		
-		JLabel lbltypeID = new JLabel(MyMethods.getGlobType());
+		String type = "";
+		if (MyMethods.getGlobType().equals("1")){
+			type = "Admin";
+		}
+		else if (MyMethods.getGlobType().equals("2")) {
+			type = "Employee";
+		}
+		JLabel lbltypeID = new JLabel(type);
 		lbltypeID.setHorizontalAlignment(SwingConstants.CENTER);
 		lbltypeID.setBounds(0, 0, 153, 16);
 		panel_5.add(lbltypeID);

@@ -28,6 +28,17 @@ private static String globLastname;
 	}
 	//-------------------------------
 	
+	private static String globTypeStr;
+		
+		public static String getGlobTypeStr() {
+			return globTypeStr;
+		}
+
+		public static void setGlobTypeStr(String globTypeStr) {
+			MyMethods.globTypeStr = globTypeStr;
+		}
+	//-------------------------------
+	
 	private static double globSalary;
 		
 		public static double getGlobSalary() {
@@ -240,14 +251,13 @@ private static int globchangePass;
 		exc.printStackTrace();
 		}
 	}
-	public void newUser(String Username, String Pass, String Firstname, String Lastname, int TypeID){
+	public void newUser(int salary, String Username, String Pass, String Firstname, String Lastname, int TypeID){
 		try {
 			
 			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
 			Statement myStmt = myConn.createStatement();
-
-			int result = myStmt.executeUpdate("INSERT INTO users " + "VALUES (NULL, '" + Username
-					+ "','" + Pass + "','" + Firstname + "','" + Lastname + "',0,'" + TypeID + "' )");
+			int result = myStmt.executeUpdate("INSERT INTO users (user_id, username, password, first_name, last_name, hoursWorkedMonth, type_id, salary) "
+					+ "VALUES (default, '"+Username+"', '"+Pass+"', '"+Firstname+"', '"+Lastname+"', '0', '"+TypeID+"', '"+salary+"')");		
 			JOptionPane.showMessageDialog(null, "User "+Username+" has been added to the database.");
 
 			myConn.close();
