@@ -17,6 +17,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class checkHours {
 
@@ -64,6 +66,19 @@ public class checkHours {
 		panel.setLayout(null);
 		
 		usernameInput = new JTextField();
+		usernameInput.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER){
+
+					String usernameCheck = usernameInput.getText();
+					MyMethods mthds = new MyMethods();
+					mthds.checkEmployee(usernameCheck);
+					UserReport UserReport = new UserReport();
+					UserReport.UserReport.setVisible(true);
+				}
+			}
+		});
 		
 		usernameInput.setHorizontalAlignment(SwingConstants.LEFT);
 		usernameInput.setBounds(208, 83, 86, 20);

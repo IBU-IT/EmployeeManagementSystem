@@ -153,7 +153,6 @@ private static int globchangePass;
 						+ "' where username='"+ChangePassUser+"';";
 			myStmt.executeUpdate(sql);
 			
-		
 		} catch (Exception exc) {
 		exc.printStackTrace();
 		}

@@ -17,6 +17,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class checkSalary {
 
@@ -57,26 +59,39 @@ public class checkSalary {
 		frmEmsCheck.setTitle("Check salary - EMS");
 		frmEmsCheck.setLocationRelativeTo(null);
 		frmEmsCheck.setVisible(true);
-		
-		
+
 		frmEmsCheck.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+
 		JPanel panel = new JPanel();
 		frmEmsCheck.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
-		
+
 		usernameInput = new JTextField();
-		
+		usernameInput.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+					String usernameCheck = usernameInput.getText();
+					MyMethods mthds = new MyMethods();
+					JOptionPane.showMessageDialog(null, "The salary for employee " + usernameCheck + " is "
+							+ mthds.calculateSalary(usernameCheck) + ".");
+
+					frmEmsCheck.setVisible(false);
+				}
+			}
+		});
+
 		usernameInput.setHorizontalAlignment(SwingConstants.LEFT);
 		usernameInput.setBounds(208, 83, 86, 20);
 		usernameInput.setColumns(10);
 		panel.add(usernameInput);
-		
+
 		JLabel label = new JLabel("Username");
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 		label.setBounds(141, 86, 70, 14);
 		panel.add(label);
-		
+
 		JButton btnCheck = new JButton("CHECK");
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -87,19 +102,20 @@ public class checkSalary {
 			public void mouseClicked(MouseEvent arg0) {
 				String usernameCheck = usernameInput.getText();
 				MyMethods mthds = new MyMethods();
-				JOptionPane.showMessageDialog(null, "The salary for employee " + usernameCheck + " is " + mthds.calculateSalary(usernameCheck) + ".");
-				
-				frmEmsCheck.setVisible(true);
+				JOptionPane.showMessageDialog(null, "The salary for employee " + usernameCheck + " is "
+						+ mthds.calculateSalary(usernameCheck) + ".");
+
+				frmEmsCheck.setVisible(false);
 			}
 		});
 		btnCheck.setBounds(141, 114, 153, 23);
 		panel.add(btnCheck);
-		
+
 		JButton btnNewButton = new JButton("EXIT");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmEmsCheck.setVisible(false);
-				
+
 			}
 		});
 		btnNewButton.setBounds(141, 148, 153, 23);

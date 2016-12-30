@@ -12,6 +12,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class DeleteUser {
 
@@ -53,6 +55,20 @@ public class DeleteUser {
 		frame.getContentPane().setLayout(null);
 		
 		usernameDelete = new JTextField();
+		usernameDelete.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER){
+
+					MyMethods mthds = new MyMethods();
+					
+					mthds.deleteEmployee(usernameDelete.getText());
+					frame.setVisible(false);
+					
+					
+				}
+			}
+		});
 		usernameDelete.setBounds(220,92, 86, 20);
 		frame.getContentPane().add(usernameDelete);
 		usernameDelete.setColumns(10);

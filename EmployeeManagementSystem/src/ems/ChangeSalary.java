@@ -19,6 +19,8 @@ import java.util.StringTokenizer;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ChangeSalary {
 
@@ -69,6 +71,20 @@ public class ChangeSalary {
 		getNewPass().setLocationRelativeTo(null);
 		getNewPass().setVisible(true);
 		newSalaryInput = new JTextField();
+		newSalaryInput.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER){
+
+					String username = usernameInput.getText();
+					double salary = Double.parseDouble(newSalaryInput.getText());
+					MyMethods mthds = new MyMethods();
+					mthds.changeSalary(username, salary);
+					JOptionPane.showMessageDialog(null, "Salary for employee "+username+" is changed to "+salary+".");
+					getNewPass().setVisible(false);
+				}
+			}
+		});
 		newSalaryInput.setBounds(199, 86, 116, 22);
 		NewPass.getContentPane().add(newSalaryInput);
 		newSalaryInput.setColumns(10);

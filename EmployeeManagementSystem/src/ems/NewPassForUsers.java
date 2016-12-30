@@ -17,6 +17,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class NewPassForUsers {
 
@@ -66,6 +68,18 @@ public class NewPassForUsers {
 		getNewPass().setLocationRelativeTo(null);
 		getNewPass().setVisible(true);
 		PassInput = new JTextField();
+		PassInput.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+					MyMethods mthds = new MyMethods();
+					mthds.changePass(MyMethods.getGlobUsername(), PassInput.getText());
+					JOptionPane.showMessageDialog(null, "Your new password is " + PassInput.getText());
+					getNewPass().setVisible(false);
+				}
+			}
+		});
 		PassInput.setBounds(223, 87, 116, 22);
 		NewPass.getContentPane().add(PassInput);
 		PassInput.setColumns(10);

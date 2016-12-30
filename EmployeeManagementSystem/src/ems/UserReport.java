@@ -18,6 +18,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class UserReport {
 
@@ -155,6 +157,14 @@ public class UserReport {
 		panel_5.add(lbltypeID);
 		
 		JButton btnExit = new JButton("OK");
+		btnExit.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER){
+					getUserReport().setVisible(false);
+					}
+			}
+		});
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
