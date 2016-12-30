@@ -139,6 +139,30 @@ public class LoginKlasa extends JFrame {
 		userInput.setColumns(10);
 
 		passInput = new JPasswordField();
+		passInput.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER){
+					userText = userInput.getText();
+					LoginKlasa.setGlobuserText(userText);
+					passText = new String(passInput.getPassword());
+					MyMethods mthds = new MyMethods();
+					int userPerm = mthds.login(userText, passText);
+					if (userPerm == 1) {
+
+						setVisible(false);
+						MainWindowAdmin nwa = new MainWindowAdmin();
+
+					} else if (userPerm == 2) {
+
+						MainWindow nw = new MainWindow();
+						setVisible(false);
+					} else {
+						// do nothing
+					}
+				}
+			}
+		});
 		passInput.setColumns(10);
 		passInput.setBounds(203, 231, 131, 22);
 		contentPane.add(passInput);
