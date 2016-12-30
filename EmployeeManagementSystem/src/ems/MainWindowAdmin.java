@@ -111,6 +111,7 @@ public class MainWindowAdmin {
 		getFrmEmployeeManagementSystem().setLocationRelativeTo(null);
 		getFrmEmployeeManagementSystem().setVisible(true);
 		JButton btnExit = new JButton("EXIT");
+		btnExit.setFocusPainted(false);
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -121,6 +122,7 @@ public class MainWindowAdmin {
 		getFrmEmployeeManagementSystem().getContentPane().add(btnExit);
 		
 		JButton btnLogout = new JButton("LOGOUT");
+		btnLogout.setFocusPainted(false);
 		btnLogout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -149,6 +151,7 @@ public class MainWindowAdmin {
 		Date date = new Date();
 		
 		JButton btnCheck = new JButton("GET A FULL USER REPORT");
+		btnCheck.setFocusPainted(false);
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -162,10 +165,11 @@ public class MainWindowAdmin {
 			}
 		});
 		btnCheck.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCheck.setBounds(45, 26, 271, 49);
+		btnCheck.setBounds(10, 11, 271, 49);
 		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
 		
 		JButton btnNewButton = new JButton("ADD NEW USER");
+		btnNewButton.setFocusPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -178,10 +182,11 @@ public class MainWindowAdmin {
 			}
 			
 		});
-		btnNewButton.setBounds(45, 88, 271, 49);
+		btnNewButton.setBounds(10, 73, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CHANGE USER PASSWORD");
+		btnNewButton_1.setFocusPainted(false);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -196,10 +201,11 @@ public class MainWindowAdmin {
 		});
 		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_1.setBounds(45, 150, 271, 49);
+		btnNewButton_1.setBounds(10, 135, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DELETE USER");
+		btnNewButton_2.setFocusPainted(false);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -215,15 +221,16 @@ public class MainWindowAdmin {
 			
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_2.setBounds(45, 212, 271, 49);
+		btnNewButton_2.setBounds(10, 197, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_2);
 		
 	
 		lblClock = new JLabel("Date&Time");
-		lblClock.setBounds(45, 376, 297, 16);
+		lblClock.setBounds(10, 376, 297, 16);
 		frmEmployeeManagementSystem.getContentPane().add(lblClock);
 		
 		JButton btnCalculateSalary = new JButton("CALCULATE SALARY");
+		btnCalculateSalary.setFocusPainted(false);
 		btnCalculateSalary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -239,8 +246,21 @@ public class MainWindowAdmin {
 			}
 		});
 		btnCalculateSalary.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCalculateSalary.setBounds(45, 272, 271, 49);
+		btnCalculateSalary.setBounds(10, 257, 271, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnCalculateSalary);
+		
+		JButton btnChangeSalary = new JButton("CHANGE SALARY");
+		btnChangeSalary.setFocusPainted(false);
+		btnChangeSalary.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				ChangeSalary window = new ChangeSalary();
+				window.getNewPass().setVisible(true);
+			}
+		});
+		btnChangeSalary.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnChangeSalary.setBounds(10, 317, 271, 49);
+		frmEmployeeManagementSystem.getContentPane().add(btnChangeSalary);
 		
 	}
 
