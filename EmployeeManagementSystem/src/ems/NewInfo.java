@@ -143,7 +143,7 @@ public class NewInfo {
 				String Lastname = LastnameText.getText();
 				int TypeID = Integer.parseInt(TypeIDText.getText());
 				MyMethods mthds = new MyMethods();
-				mthds.newUser(UserID, Username, Pass, Firstname, Lastname, TypeID);
+				mthds.newUser(Username, Pass, Firstname, Lastname, TypeID);
 				getNewInfo().setVisible(false);
 			}
 		});
