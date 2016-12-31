@@ -277,7 +277,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(lblClock);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(446, 49, 197, 144);
+		panel_2.setBounds(446, 67, 197, 144);
 		frmEmployeeManagementSystem.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -335,15 +335,20 @@ public class MainWindow {
 				NewPassForUsers window = new NewPassForUsers();
 			}
 		});
-		btnNewButton.setBounds(446, 204, 197, 23);
+		btnNewButton.setBounds(446, 227, 197, 23);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
-		JOptionPane.showMessageDialog(null, MyMethods.getGlobUsername());
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("EmployeeManagementSystem\\EmployeeManagementSystem\\EmployeeManagementSystem\\demir.jpg"));
 		
-		lblNewLabel.setBounds(288, 211, 134, 121);
-		frmEmployeeManagementSystem.getContentPane().add(lblNewLabel);
+		JButton btnNewButton_1 = new JButton("SEND A MESSAGE TO ADMIN");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Messages mess= new Messages ();
+			mess.Messages();
+			}
+		});
+		btnNewButton_1.setBounds(30, 290, 212, 49);
+		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
+		
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();

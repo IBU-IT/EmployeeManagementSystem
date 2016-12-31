@@ -43,6 +43,7 @@ public class NewInfo {
 	public String TypeID;
 	private JTextField idText;
 	private JButton btnCancel;
+	private JTextField userTypeInput;
 
 	/**
 	 * Launch the application.
@@ -88,18 +89,14 @@ public class NewInfo {
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-					int UserType = 0;
-					if (MyMethods.getGlobTypeStr().equals("Admin")) {
-						UserType = 1;
-					} else if (MyMethods.getGlobTypeStr().equals("Employee")) {
-						UserType = 2;
-					}
+					
+					
 					int salary = Integer.parseInt(idText.getText());
 					String Pass = PasswordText.getText();
 					String Username = UsernameText.getText();
 					String Firstname = FirstnameText.getText();
 					String Lastname = LastnameText.getText();
-
+					int UserType = Integer.parseInt(userTypeInput.getText());
 					MyMethods mthds = new MyMethods();
 					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 					getNewInfo().setVisible(false);
@@ -116,18 +113,12 @@ public class NewInfo {
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-					int UserType = 0;
-					if (MyMethods.getGlobTypeStr().equals("Admin")) {
-						UserType = 1;
-					} else if (MyMethods.getGlobTypeStr().equals("Employee")) {
-						UserType = 2;
-					}
 					int salary = Integer.parseInt(idText.getText());
 					String Pass = PasswordText.getText();
 					String Username = UsernameText.getText();
 					String Firstname = FirstnameText.getText();
 					String Lastname = LastnameText.getText();
-
+					int UserType = Integer.parseInt(userTypeInput.getText());
 					MyMethods mthds = new MyMethods();
 					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 					getNewInfo().setVisible(false);
@@ -143,18 +134,12 @@ public class NewInfo {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					int UserType = 0;
-					if (MyMethods.getGlobTypeStr().equals("Admin")) {
-						UserType = 1;
-					} else if (MyMethods.getGlobTypeStr().equals("Employee")) {
-						UserType = 2;
-					}
 					int salary = Integer.parseInt(idText.getText());
 					String Pass = PasswordText.getText();
 					String Username = UsernameText.getText();
 					String Firstname = FirstnameText.getText();
 					String Lastname = LastnameText.getText();
-
+					int UserType = Integer.parseInt(userTypeInput.getText());
 					MyMethods mthds = new MyMethods();
 					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 					getNewInfo().setVisible(false);
@@ -171,18 +156,12 @@ public class NewInfo {
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-					int UserType = 0;
-					if (MyMethods.getGlobTypeStr().equals("Admin")) {
-						UserType = 1;
-					} else if (MyMethods.getGlobTypeStr().equals("Employee")) {
-						UserType = 2;
-					}
 					int salary = Integer.parseInt(idText.getText());
 					String Pass = PasswordText.getText();
 					String Username = UsernameText.getText();
 					String Firstname = FirstnameText.getText();
 					String Lastname = LastnameText.getText();
-
+					int UserType = Integer.parseInt(userTypeInput.getText());
 					MyMethods mthds = new MyMethods();
 					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 					getNewInfo().setVisible(false);
@@ -203,18 +182,12 @@ public class NewInfo {
 		btnConfirm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int UserType = 0;
-				if (MyMethods.getGlobTypeStr().equals("Admin")) {
-					UserType = 1;
-				} else if (MyMethods.getGlobTypeStr().equals("Employee")) {
-					UserType = 2;
-				}
 				int salary = Integer.parseInt(idText.getText());
 				String Pass = PasswordText.getText();
 				String Username = UsernameText.getText();
 				String Firstname = FirstnameText.getText();
 				String Lastname = LastnameText.getText();
-
+				int UserType = Integer.parseInt(userTypeInput.getText());
 				MyMethods mthds = new MyMethods();
 				mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 				getNewInfo().setVisible(false);
@@ -224,7 +197,7 @@ public class NewInfo {
 
 		JLabel lblUserId = new JLabel("Salary per hour:");
 		lblUserId.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUserId.setBounds(100, 183, 144, 16);
+		lblUserId.setBounds(100, 190, 144, 16);
 		lblUserId.setFont(new Font("Tahoma", Font.BOLD, 13));
 		NewInfo.getContentPane().add(lblUserId);
 
@@ -233,18 +206,12 @@ public class NewInfo {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					int UserType = 0;
-					if (MyMethods.getGlobTypeStr().equals("Admin")) {
-						UserType = 1;
-					} else if (MyMethods.getGlobTypeStr().equals("Employee")) {
-						UserType = 2;
-					}
 					int salary = Integer.parseInt(idText.getText());
 					String Pass = PasswordText.getText();
 					String Username = UsernameText.getText();
 					String Firstname = FirstnameText.getText();
 					String Lastname = LastnameText.getText();
-
+					int UserType = Integer.parseInt(userTypeInput.getText());
 					MyMethods mthds = new MyMethods();
 					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
 					getNewInfo().setVisible(false);
@@ -252,7 +219,7 @@ public class NewInfo {
 				}
 			}
 		});
-		idText.setBounds(255, 181, 116, 22);
+		idText.setBounds(255, 188, 116, 22);
 		idText.setColumns(10);
 		NewInfo.getContentPane().add(idText);
 
@@ -265,12 +232,7 @@ public class NewInfo {
 			}
 		});
 		NewInfo.getContentPane().add(btnCancel);
-
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(255, 155, 116, 20);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Admin", "Employee" }));
-		MyMethods.setGlobTypeStr((String) comboBox.getSelectedItem());
-		NewInfo.getContentPane().add(comboBox);
+		
 
 		JLabel lblUserType = new JLabel("User type:");
 		lblUserType.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -301,6 +263,11 @@ public class NewInfo {
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblUsername.setBounds(100, 45, 144, 16);
 		NewInfo.getContentPane().add(lblUsername);
+		
+		userTypeInput = new JTextField();
+		userTypeInput.setColumns(10);
+		userTypeInput.setBounds(255, 156, 116, 22);
+		NewInfo.getContentPane().add(userTypeInput);
 
 	}
 
