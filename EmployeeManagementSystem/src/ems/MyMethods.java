@@ -129,15 +129,16 @@ public class MyMethods {
 	}
 
 	// -------------------------------
-	private static int globHoursWorked;
+		private static int globHoursWorked;
 
-	public static int getGlobHoursWorked() {
-		return globHoursWorked;
-	}
+		public static int getGlobHoursWorked() {
+			return globHoursWorked;
+		}
 
-	public static void setGlobHoursWorked(int globHoursWorked) {
-		MyMethods.globHoursWorked = globHoursWorked;
-	}
+		public static void setGlobHoursWorked(int globHoursWorked) {
+			MyMethods.globHoursWorked = globHoursWorked;
+		}
+		
 
 	// -------------------------------
 
@@ -274,18 +275,22 @@ public class MyMethods {
 		}
 	}
 
-	public void checkEmployee(String usernameCheck) {
+	public int checkEmployee(String usernameCheck) {
+		int verify = 0;
 		try {
+			
 			Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
 
 			Statement myStmt = myConn.createStatement();
 			ResultSet result = myStmt.executeQuery(
 					"SELECT hoursWorkedMonth, user_id,username,password,first_name,last_name, type_id FROM Users WHERE username = '"
 							+ usernameCheck + "'");
-			// int testtest = result.getInt("hoursWorkedMonth");
+			
 			if (result.next() == false) {
-				JOptionPane.showMessageDialog(null, "Wrong information");
+				JOptionPane.showMessageDialog(null, "There is no employee with username: "+usernameCheck);
+				verify = 1;
 			}
+			
 			MyMethods.setGlobHoursWorked(result.getInt("hoursWorkedMonth"));
 			MyMethods.setGlobID(result.getInt("user_id"));
 			MyMethods.setGlobType(result.getString("type_id"));
@@ -293,10 +298,12 @@ public class MyMethods {
 			MyMethods.setGlobPassword(result.getString("password"));
 			MyMethods.setGlobFirstname(result.getString("first_name"));
 			MyMethods.setGlobLastname(result.getString("last_name"));
+			MyMethods.setGlobSalary(result.getDouble("salary"));
 
 		} catch (Exception exc) {
 			exc.printStackTrace();
 		}
+		return verify;
 	}
 
 	public void deleteEmployee(String usernameDel) {

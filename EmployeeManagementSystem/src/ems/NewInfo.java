@@ -27,6 +27,9 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import java.awt.List;
 
 public class NewInfo {
 
@@ -43,7 +46,6 @@ public class NewInfo {
 	public String TypeID;
 	private JTextField idText;
 	private JButton btnCancel;
-	private JTextField userTypeInput;
 
 	/**
 	 * Launch the application.
@@ -84,116 +86,28 @@ public class NewInfo {
 		NewInfo.getContentPane().setLayout(null);
 
 		UsernameText = new JTextField();
-		UsernameText.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-					
-					
-					int salary = Integer.parseInt(idText.getText());
-					String Pass = PasswordText.getText();
-					String Username = UsernameText.getText();
-					String Firstname = FirstnameText.getText();
-					String Lastname = LastnameText.getText();
-					int UserType = Integer.parseInt(userTypeInput.getText());
-					MyMethods mthds = new MyMethods();
-					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
-					getNewInfo().setVisible(false);
-				}
-			}
-		});
+		
 		UsernameText.setBounds(255, 41, 116, 22);
 		NewInfo.getContentPane().add(UsernameText);
 		UsernameText.setColumns(10);
 
 		PasswordText = new JTextField();
-		PasswordText.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-					int salary = Integer.parseInt(idText.getText());
-					String Pass = PasswordText.getText();
-					String Username = UsernameText.getText();
-					String Firstname = FirstnameText.getText();
-					String Lastname = LastnameText.getText();
-					int UserType = Integer.parseInt(userTypeInput.getText());
-					MyMethods mthds = new MyMethods();
-					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
-					getNewInfo().setVisible(false);
-				}
-			}
-		});
+		
 		PasswordText.setBounds(255, 72, 116, 22);
 		PasswordText.setColumns(10);
 		NewInfo.getContentPane().add(PasswordText);
 
 		FirstnameText = new JTextField();
-		FirstnameText.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					int salary = Integer.parseInt(idText.getText());
-					String Pass = PasswordText.getText();
-					String Username = UsernameText.getText();
-					String Firstname = FirstnameText.getText();
-					String Lastname = LastnameText.getText();
-					int UserType = Integer.parseInt(userTypeInput.getText());
-					MyMethods mthds = new MyMethods();
-					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
-					getNewInfo().setVisible(false);
-				}
-			}
-		});
+		
 		FirstnameText.setBounds(255, 98, 116, 22);
 		FirstnameText.setColumns(10);
 		NewInfo.getContentPane().add(FirstnameText);
 
 		LastnameText = new JTextField();
-		LastnameText.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-					int salary = Integer.parseInt(idText.getText());
-					String Pass = PasswordText.getText();
-					String Username = UsernameText.getText();
-					String Firstname = FirstnameText.getText();
-					String Lastname = LastnameText.getText();
-					int UserType = Integer.parseInt(userTypeInput.getText());
-					MyMethods mthds = new MyMethods();
-					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
-					getNewInfo().setVisible(false);
-				}
-
-			}
-		});
+		
 		LastnameText.setBounds(255, 127, 116, 22);
 		LastnameText.setColumns(10);
 		NewInfo.getContentPane().add(LastnameText);
-
-		JButton btnConfirm = new JButton("Confirm");
-		btnConfirm.setBounds(147, 232, 97, 25);
-		btnConfirm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnConfirm.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				int salary = Integer.parseInt(idText.getText());
-				String Pass = PasswordText.getText();
-				String Username = UsernameText.getText();
-				String Firstname = FirstnameText.getText();
-				String Lastname = LastnameText.getText();
-				int UserType = Integer.parseInt(userTypeInput.getText());
-				MyMethods mthds = new MyMethods();
-				mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
-				getNewInfo().setVisible(false);
-			}
-		});
-		NewInfo.getContentPane().add(btnConfirm);
 
 		JLabel lblUserId = new JLabel("Salary per hour:");
 		lblUserId.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -202,23 +116,7 @@ public class NewInfo {
 		NewInfo.getContentPane().add(lblUserId);
 
 		idText = new JTextField();
-		idText.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					int salary = Integer.parseInt(idText.getText());
-					String Pass = PasswordText.getText();
-					String Username = UsernameText.getText();
-					String Firstname = FirstnameText.getText();
-					String Lastname = LastnameText.getText();
-					int UserType = Integer.parseInt(userTypeInput.getText());
-					MyMethods mthds = new MyMethods();
-					mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
-					getNewInfo().setVisible(false);
-
-				}
-			}
-		});
+		
 		idText.setBounds(255, 188, 116, 22);
 		idText.setColumns(10);
 		NewInfo.getContentPane().add(idText);
@@ -264,11 +162,37 @@ public class NewInfo {
 		lblUsername.setBounds(100, 45, 144, 16);
 		NewInfo.getContentPane().add(lblUsername);
 		
-		userTypeInput = new JTextField();
-		userTypeInput.setColumns(10);
-		userTypeInput.setBounds(255, 156, 116, 22);
-		NewInfo.getContentPane().add(userTypeInput);
-
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Employee", "Admin"}));
+		comboBox.setBounds(255, 157, 116, 20);
+		NewInfo.getContentPane().add(comboBox);
+		
+		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String userrtype = (String)comboBox.getSelectedItem();
+				int UserType = 0;
+				if (userrtype.equals("Admin")){
+					UserType = 1;
+				}
+				else if (userrtype.equals("Employee")){
+					UserType = 2;
+				}
+				int salary = Integer.parseInt(idText.getText());
+				String Pass = PasswordText.getText();
+				String Username = UsernameText.getText();
+				String Firstname = FirstnameText.getText();
+				String Lastname = LastnameText.getText();
+				//int UserType = Integer.parseInt(userTypeInput.getText());
+				MyMethods mthds = new MyMethods();
+				mthds.newUser(salary, Username, Pass, Firstname, Lastname, UserType);
+				getNewInfo().setVisible(false);
+			}
+		});
+		btnConfirm.setBounds(147, 234, 97, 25);
+		NewInfo.getContentPane().add(btnConfirm);
+		
 	}
 
 	public JFrame getNewInfo() {

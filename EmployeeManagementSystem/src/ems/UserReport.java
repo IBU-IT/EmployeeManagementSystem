@@ -61,37 +61,37 @@ public class UserReport {
 		UserReport.getContentPane().setLayout(null);
 		
 		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setBounds(40, 25, 75, 16);
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblUsername.setBounds(41, 59, 75, 16);
 		UserReport.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(40, 54, 75, 16);
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblPassword.setBounds(41, 88, 75, 16);
 		UserReport.getContentPane().add(lblPassword);
 		
 		JLabel lblFirstName = new JLabel("First name:");
+		lblFirstName.setBounds(40, 83, 75, 16);
 		lblFirstName.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblFirstName.setBounds(41, 117, 75, 16);
 		UserReport.getContentPane().add(lblFirstName);
 		
 		JLabel lblLastName = new JLabel("Last name:");
+		lblLastName.setBounds(40, 112, 75, 16);
 		lblLastName.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblLastName.setBounds(41, 146, 75, 16);
 		UserReport.getContentPane().add(lblLastName);
 		
 		JLabel lblHoursWorkedThis = new JLabel("Hours worked this month");
+		lblHoursWorkedThis.setBounds(40, 141, 180, 16);
 		lblHoursWorkedThis.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblHoursWorkedThis.setBounds(41, 175, 180, 16);
 		UserReport.getContentPane().add(lblHoursWorkedThis);
 		
 		JLabel lblTypeId = new JLabel("Type ID:");
+		lblTypeId.setBounds(40, 170, 75, 16);
 		lblTypeId.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblTypeId.setBounds(41, 204, 75, 16);
 		UserReport.getContentPane().add(lblTypeId);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(138, 59, 151, 16);
+		panel.setBounds(137, 25, 151, 16);
 		UserReport.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -101,7 +101,7 @@ public class UserReport {
 		panel.add(lblusername);
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(215, 175, 69, 16);
+		panel_4.setBounds(214, 141, 69, 16);
 		UserReport.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 		String hwConv = Integer.toString(MyMethods.getGlobHoursWorked());
@@ -111,7 +111,7 @@ public class UserReport {
 		panel_4.add(lblhours);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(138, 146, 151, 16);
+		panel_1.setBounds(137, 112, 151, 16);
 		UserReport.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -121,7 +121,7 @@ public class UserReport {
 		panel_1.add(lbllastname);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(138, 88, 151, 16);
+		panel_2.setBounds(137, 54, 151, 16);
 		UserReport.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -131,7 +131,7 @@ public class UserReport {
 		panel_2.add(lblpassword);
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(138, 117, 151, 16);
+		panel_3.setBounds(137, 83, 151, 16);
 		UserReport.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -141,7 +141,7 @@ public class UserReport {
 		panel_3.add(lblfirstname);
 		
 		JPanel panel_5 = new JPanel();
-		panel_5.setBounds(136, 204, 153, 16);
+		panel_5.setBounds(135, 170, 153, 16);
 		UserReport.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		String type = "";
@@ -157,6 +157,11 @@ public class UserReport {
 		panel_5.add(lbltypeID);
 		
 		JButton btnExit = new JButton("OK");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnExit.setBounds(335, 227, 89, 23);
 		btnExit.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -172,8 +177,22 @@ public class UserReport {
 				
 			}
 		});
-		btnExit.setBounds(335, 227, 89, 23);
 		UserReport.getContentPane().add(btnExit);
+		
+		JLabel lblSalary = new JLabel("Salary per hour:");
+		lblSalary.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblSalary.setBounds(40, 197, 75, 16);
+		UserReport.getContentPane().add(lblSalary);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setLayout(null);
+		panel_6.setBounds(135, 197, 153, 16);
+		UserReport.getContentPane().add(panel_6);
+		String pay = Double.toString(MyMethods.getGlobSalary());
+		JLabel label_2 = new JLabel(pay);
+		label_2.setHorizontalAlignment(SwingConstants.CENTER);
+		label_2.setBounds(0, 0, 153, 16);
+		panel_6.add(label_2);
 		UserReport.setSize( 450, 300);
 		UserReport.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

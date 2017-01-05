@@ -73,9 +73,11 @@ public class checkHours {
 
 					String usernameCheck = usernameInput.getText();
 					MyMethods mthds = new MyMethods();
-					mthds.checkEmployee(usernameCheck);
-					UserReport UserReport = new UserReport();
-					UserReport.UserReport.setVisible(true);
+					int verify = mthds.checkEmployee(usernameCheck);
+					if (verify == 0) {
+						UserReport UserReport = new UserReport();
+						UserReport.UserReport.setVisible(true);
+					}
 				}
 			}
 		});
@@ -100,9 +102,11 @@ public class checkHours {
 			public void mouseClicked(MouseEvent arg0) {
 				String usernameCheck = usernameInput.getText();
 				MyMethods mthds = new MyMethods();
-				mthds.checkEmployee(usernameCheck);
-				UserReport UserReport = new UserReport();
-				UserReport.UserReport.setVisible(true);
+				int verify = mthds.checkEmployee(usernameCheck);
+				if (verify == 0) {
+					UserReport UserReport = new UserReport();
+					UserReport.UserReport.setVisible(true);
+				}				
 			}
 		});
 		btnCheck.setBounds(141, 114, 153, 23);
