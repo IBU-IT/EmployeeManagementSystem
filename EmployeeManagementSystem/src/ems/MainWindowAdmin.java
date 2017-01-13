@@ -44,6 +44,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 
 public class MainWindowAdmin {
 
@@ -117,6 +118,7 @@ public class MainWindowAdmin {
 		getFrmEmployeeManagementSystem().setLocationRelativeTo(null);
 		getFrmEmployeeManagementSystem().setVisible(true);
 		JButton btnExit = new JButton("EXIT");
+		btnExit.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnExit.setFocusPainted(false);
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
@@ -128,6 +130,7 @@ public class MainWindowAdmin {
 		getFrmEmployeeManagementSystem().getContentPane().add(btnExit);
 		
 		JButton btnLogout = new JButton("LOGOUT");
+		btnLogout.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnLogout.setFocusPainted(false);
 		btnLogout.addMouseListener(new MouseAdapter() {
 			@Override
@@ -157,6 +160,7 @@ public class MainWindowAdmin {
 		Date date = new Date();
 		
 		JButton btnCheck = new JButton("GET A FULL USER REPORT");
+		btnCheck.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnCheck.setFocusPainted(false);
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -175,6 +179,7 @@ public class MainWindowAdmin {
 		getFrmEmployeeManagementSystem().getContentPane().add(btnCheck);
 		
 		JButton btnNewButton = new JButton("ADD NEW USER");
+		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnNewButton.setFocusPainted(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -192,6 +197,7 @@ public class MainWindowAdmin {
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CHANGE USER PASSWORD");
+		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnNewButton_1.setFocusPainted(false);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -211,6 +217,7 @@ public class MainWindowAdmin {
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DELETE USER");
+		btnNewButton_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnNewButton_2.setFocusPainted(false);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -236,6 +243,7 @@ public class MainWindowAdmin {
 		frmEmployeeManagementSystem.getContentPane().add(lblClock);
 		
 		JButton btnCalculateSalary = new JButton("CALCULATE SALARY");
+		btnCalculateSalary.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnCalculateSalary.setFocusPainted(false);
 		btnCalculateSalary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -256,6 +264,7 @@ public class MainWindowAdmin {
 		frmEmployeeManagementSystem.getContentPane().add(btnCalculateSalary);
 		
 		JButton btnChangeSalary = new JButton("CHANGE SALARY");
+		btnChangeSalary.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnChangeSalary.setFocusPainted(false);
 		btnChangeSalary.addMouseListener(new MouseAdapter() {
 			@Override
@@ -269,6 +278,7 @@ public class MainWindowAdmin {
 		frmEmployeeManagementSystem.getContentPane().add(btnChangeSalary);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.setLayout(null);
 		panel.setBounds(440, 102, 197, 86);
 		frmEmployeeManagementSystem.getContentPane().add(panel);
@@ -315,6 +325,7 @@ public class MainWindowAdmin {
 		String salary = Double.toString(pay);
 		
 		JButton btnReadMessagesFrom = new JButton("READ MESSAGES FROM EMPLOYEES");
+		btnReadMessagesFrom.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnReadMessagesFrom.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -326,6 +337,7 @@ public class MainWindowAdmin {
 		frmEmployeeManagementSystem.getContentPane().add(btnReadMessagesFrom);
 		
 		JButton btnNewButton_3 = new JButton("DELETE ALL READ MESSAGES");
+		btnNewButton_3.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnNewButton_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -348,6 +360,11 @@ public class MainWindowAdmin {
 		});
 		btnNewButton_3.setBounds(355, 269, 271, 25);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_3);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MainWindowAdmin.class.getResource("/images/Image123.png")));
+		lblNewLabel.setBounds(0, 0, 679, 407);
+		frmEmployeeManagementSystem.getContentPane().add(lblNewLabel);
 		
 	}
 

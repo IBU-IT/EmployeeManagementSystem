@@ -38,6 +38,7 @@ import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 
 public class MainWindow {
 	private JLabel lblClock;
@@ -112,6 +113,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.setLocationRelativeTo(null);
 		frmEmployeeManagementSystem.setVisible(true);
 		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.setBounds(30, 30, 212, 85);
 		frmEmployeeManagementSystem.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -152,6 +154,7 @@ public class MainWindow {
 		panel.add(txtpnMm);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setLayout(null);
 		panel_1.setBounds(30, 126, 212, 85);
 		frmEmployeeManagementSystem.getContentPane().add(panel_1);
@@ -190,6 +193,7 @@ public class MainWindow {
 		panel_1.add(textPane_2);
 		
 		JButton btnExit = new JButton("EXIT");
+		btnExit.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -200,6 +204,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(btnExit);
 		
 		JButton btnLogout = new JButton("LOGOUT");
+		btnLogout.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnLogout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -219,6 +224,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(btnLogout);
 		
 		JButton btnStats = new JButton("STATS");
+		btnStats.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnStats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -233,6 +239,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(btnStats);
 		
 		JButton btnSubmit = new JButton("--->SUBMIT<---");
+		btnSubmit.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnSubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -277,6 +284,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(lblClock);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_2.setBounds(446, 67, 197, 144);
 		frmEmployeeManagementSystem.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
@@ -328,6 +336,7 @@ public class MainWindow {
 		lblSalary.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JButton btnNewButton = new JButton("Change Password");
+		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -339,6 +348,7 @@ public class MainWindow {
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("SEND A MESSAGE TO ADMIN");
+		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -348,6 +358,11 @@ public class MainWindow {
 		});
 		btnNewButton_1.setBounds(30, 290, 212, 49);
 		frmEmployeeManagementSystem.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MainWindow.class.getResource("/images/Image123.png")));
+		lblNewLabel.setBounds(0, 0, 679, 407);
+		frmEmployeeManagementSystem.getContentPane().add(lblNewLabel);
 		
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
